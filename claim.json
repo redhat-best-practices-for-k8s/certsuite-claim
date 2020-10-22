@@ -1,0 +1,40 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "claim": {
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "startTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "endTime": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "testConfigurations": {
+          "type": "object"
+        },
+        "hosts": {
+          "type": "object",
+          "properties": {
+            "lshwOutput": {
+              "type": "object"
+            }
+          }
+        },
+        "junitResults": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "startTime",
+        "endTime",
+        "testConfigurations",
+        "hosts",
+        "junitResults"
+      ]
+    }
+  }
+}
