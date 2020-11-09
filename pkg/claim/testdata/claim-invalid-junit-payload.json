@@ -1,10 +1,15 @@
 {
   "claim": {
-    "startTime": "1970-01-01T10:05:08+01:00",
-    "endTime": "1970-01-01T10:05:08+01:00",
-    "tnfVersion": "",
-    "testConfigurations": {},
-    "junitResults": false,
+    "metadata": {
+      "startTime": "1970-01-01T10:05:08+01:00",
+      "endTime": "1970-01-01T10:05:08+01:00"
+    },
+    "versions": {
+      "tnf": "v0.0.1",
+      "openshift": "4.4.3"
+    },
+    "configurations": {},
+    "results": false,
     "hosts": {
       "host1": {
         "lshwOutput": {

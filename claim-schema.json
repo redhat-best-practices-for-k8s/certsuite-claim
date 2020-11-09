@@ -1,54 +1,76 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "version": "0.0.1",
+  "version": "v0.0.5",
   "description": "Represents a test-network-function claim.",
-  "additionalProperties": false,
+  "type": "object",
   "properties": {
     "claim": {
-      "additionalProperties": false,
       "type": "object",
       "properties": {
-        "startTime": {
-          "type": "string",
-          "format": "date-time",
-          "description": "The claim evaluation start time."
-        },
-        "endTime": {
-          "type": "string",
-          "format": "date-time",
-          "description": "The claim evaluation end time."
-        },
-        "tnfVersion": {
-          "type": "string",
-          "description": "The test-network-function (tnf) commit hash."
-        },
-        "testConfigurations": {
+        "metadata": {
           "type": "object",
-          "description": "The key/value configuration data to perform the given claim tests."
+          "properties": {
+            "startTime": {
+              "type": "string",
+              "format": "date-time",
+              "description": "The claim evaluation UTC start time."
+            },
+            "endTime": {
+              "type": "string",
+              "format": "date-time",
+              "description": "The claim evaluation UTC end time."
+            }
+          },
+          "additionalProperties": false,
+          "required": ["startTime", "endTime"]
+        },
+        "versions": {
+          "type": "object",
+          "properties": {
+            "tnf": {
+              "type": "string",
+              "description": "The test-network-function (tnf) version."
+            },
+            "openshift": {
+              "type": "string",
+              "description": "The test-network-function (tnf) version."
+            }
+          },
+          "additionalProperties": false,
+          "required": ["openshift", "tnf"]
+        },
+        "configurations": {
+          "type": "object",
+          "description": "Key/Value where the key is the configuration name.",
+          "additionalProperties": {
+            "type": "object",
+            "description": "Key/Value where the key is the configuration item."
+          }
         },
         "hosts": {
           "type": "object",
           "description": "Hostname/payload key/value information for all hosts in the cluster.",
-          "properties": {
-            "lshwOutput": {
-              "type": "object",
-              "description": "A description of a host using the Unix lshw command."
-            }
+          "additionalProperties": {
+            "type": "object",
+            "description": "A description of a host using the Unix lshw command."
           }
         },
-        "junitResults": {
+        "results": {
           "type": "object",
-          "description": "JUnit test results."
+          "description": "The test results."
         }
       },
+      "additionalProperties": false,
       "required": [
         "startTime",
         "endTime",
-        "tnfVersion",
-        "testConfigurations",
+        "versions",
+        "configurations",
         "hosts",
-        "junitResults"
+        "results"
       ]
     }
-  }
+  },
+  "additionalProperties": false,
+  "required": ["claim"]
 }

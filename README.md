@@ -66,10 +66,10 @@ compile-time optimization.
 ### Overriding type inferences
 
 [a-h/generate](https://github.com/a-h/generate) is known to output JSON `object` types as GoLang `struct`s.  Although
-this is normally desirable, we actually want to allow arbitrary JSON instead.  In this case, we have no struct
-definition for some facets of our claim, such as "LshwOutput" and "JunitResults".  This is due to the fact that others
-define those JSON structures, and we are not in the business of redefinition.  This is a rare case in which we want to
-allow GoLang to represent arbitrary JSON data.
+this is normally desirable, we occasionally wish to allow arbitrary JSON instead.  In this case, we have no struct
+definition for some facets of our claim, such as "lshw" and "results".  This is due to the fact that others define those
+JSON structures, and we are not in the business of redefinition.  This is a rare case in which we want to allow GoLang
+to represent arbitrary JSON data.
 
 To remap a property type, please consult `override.json`, which provides an entrypoint for remapping types in GoLang
 generated client code.

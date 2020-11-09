@@ -17,7 +17,15 @@ import (
 	"github.com/a-h/generate"
 	"io"
 	"os"
+	"regexp"
 )
+
+const (
+	fieldTypeRegexIndex  = 1
+	fieldTypeRegexString = `[^\*]*\*(\w+)`
+)
+
+var fieldTypeRegex = regexp.MustCompile(fieldTypeRegexString)
 
 // New sets up the generate.Generator and output file for generating a Claim in GoLang.  It does not apply any override
 // settings.
@@ -40,27 +48,50 @@ func New(outputGoFile string, inputFiles ...string) (*generate.Generator, io.Wri
 	return g, w, nil
 }
 
-// applyOverrideConfiguration applies a single override configuration.
-func applyOverrideConfiguration(g *generate.Generator, property, parent, overrideType string) error {
-	if _, ok := g.Structs[property]; ok {
-		delete(g.Structs, property)
-		if parentStruct, ok := g.Structs[parent]; ok {
-			if replacementStruct, ok := parentStruct.Fields[property]; ok {
-				replacementStruct.Type = overrideType
-				parentStruct.Fields[property] = replacementStruct
-				return nil
-			}
-			return fmt.Errorf("parent %s has no property: %s", parent, property)
-		}
-		return fmt.Errorf("no such parent: %s", parent)
+func apply(parentStruct generate.Struct, property, overrideType string, path []string) error {
+	if replacementField, ok := parentStruct.Fields[property]; ok {
+		replacementField.Type = overrideType
+		parentStruct.Fields[property] = replacementField
+		return nil
 	}
-	return fmt.Errorf("no such property: %s", property)
+	return fmt.Errorf("incorrect path: %s", path)
+}
+
+func getFieldType(typ string) (string, error) {
+	matches := fieldTypeRegex.FindStringSubmatch(typ)
+	if matches != nil && len(matches) >= fieldTypeRegexIndex {
+		return matches[fieldTypeRegexIndex], nil
+	}
+	return "", fmt.Errorf("couldn't determine type for erasure: %s", typ)
+}
+
+// applyOverrideConfiguration applies a single override configuration.
+func applyOverrideConfiguration(g *generate.Generator, overrideType string, path []string) error {
+	pathLength := len(path)
+	if pathLength <= 1 {
+		return fmt.Errorf("path to replacement field must have at least two elements: %s", path)
+	}
+	structName := path[pathLength-2]
+	if parentStruct, ok := g.Structs[structName]; ok {
+		fieldName := path[pathLength-1]
+		if field, ok := parentStruct.Fields[fieldName]; ok {
+			fieldType, err := getFieldType(field.Type)
+			if err != nil {
+				return err
+			}
+			if _, ok := g.Structs[fieldType]; ok {
+				delete(g.Structs, fieldType)
+			}
+			return apply(parentStruct, fieldName, overrideType, path)
+		}
+	}
+	return fmt.Errorf("incorrect path: %s", path)
 }
 
 // ApplyOverrideConfiguration applies all override configurations specified.
 func ApplyOverrideConfiguration(g *generate.Generator, config *OverrideConfig) error {
-	for key, value := range config.Properties {
-		err := applyOverrideConfiguration(g, key, value.Parent, value.OverrideType)
+	for _, value := range config.Properties {
+		err := applyOverrideConfiguration(g, value.OverrideType, value.Path)
 		if err != nil {
 			return err
 		}

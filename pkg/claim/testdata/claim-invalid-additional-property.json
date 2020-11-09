@@ -1,11 +1,16 @@
 {
-  "junkAdditionalProperties": "should cause a MarshallJSON failure, as they don't adhere to the schema",
+  "anAdditionalPropertyInTheRootPayload": "shouldCauseAMarshalError",
   "claim": {
-    "startTime": "1970-01-01T10:05:08+01:00",
-    "endTime": "1970-01-01T10:05:08+01:00",
-    "tnfVersion": "",
-    "testConfigurations": {},
-    "junitResults": {
+    "metadata": {
+      "startTime": "1970-01-01T10:05:08+01:00",
+      "endTime": "1970-01-01T10:05:08+01:00"
+    },
+    "versions": {
+      "tnf": "v0.0.1",
+      "openshift": "4.4.3"
+    },
+    "configurations": {},
+    "results": {
       "name": "CNF Certification Test Suite",
       "tests": "7",
       "failures": "1",

@@ -1,16 +1,23 @@
 {
-  "properties": {
-    "TestConfigurations": {
-      "parent": "Claim",
+  "properties": [
+    {
+      "path": [
+        "claim",
+        "configurations"
+      ],
       "overrideType": "map[string]interface{}"
-    },
-    "JunitResults": {
-      "parent": "Claim",
+    }, {
+      "path": [
+        "claim",
+        "hosts"
+      ],
       "overrideType": "map[string]interface{}"
-    },
-    "LshwOutput": {
-      "parent": "Hosts",
+    }, {
+      "path": [
+        "claim",
+        "results"
+      ],
       "overrideType": "map[string]interface{}"
     }
-  }
+  ]
 }

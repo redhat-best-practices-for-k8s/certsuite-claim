@@ -42,6 +42,9 @@ var testCases = map[string]*testCase{
 	"invalid-json": {
 		expectedMarshallJSONError: true,
 	},
+	"missing-claim": {
+		expectedMarshallJSONError: true,
+	},
 }
 
 func getTestFile(testCaseName string) string {
@@ -68,8 +71,8 @@ func TestRoot_MarshalJSON(t *testing.T) {
 
 		if testCaseDefinition.expectedMarshallJSONError == false {
 			// start time assertion
-			assert.Equal(t, "1970-01-01T10:05:08+01:00", root.Claim.StartTime)
-			assert.Equal(t, "1970-01-01T10:05:08+01:00", root.Claim.EndTime)
+			assert.Equal(t, "1970-01-01T10:05:08+01:00", root.Claim.Metadata.StartTime)
+			assert.Equal(t, "1970-01-01T10:05:08+01:00", root.Claim.Metadata.EndTime)
 
 			generatedContents, err := json.Marshal(root)
 			assert.Nil(t, err)

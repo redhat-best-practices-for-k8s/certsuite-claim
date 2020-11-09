@@ -15,6 +15,8 @@ package generate
 import (
 	"encoding/json"
 	"io/ioutil"
+	"strings"
+	"unicode"
 )
 
 const (
@@ -24,13 +26,13 @@ const (
 // OverrideConfig provides a means of specifying override values for code generation.
 type OverrideConfig struct {
 	// Properties provides a means of specifying override settings for a particular property.
-	Properties map[string]OverrideSettings `json:"properties,omitempty" yaml:"properties,omitempty"`
+	Properties []OverrideSettings `json:"properties,omitempty" yaml:"properties,omitempty"`
 }
 
 // OverrideSettings contains the override values for a particular property.
 type OverrideSettings struct {
 	// Parent is the JSON Schema parent for a given property.
-	Parent string `json:"parent" yaml:"parent"`
+	Path []string `json:"path" yaml:"path"`
 	// OverrideType is the type the code generator should emit for a given property.  Normally, this is `map[string]interface{}`.
 	OverrideType string `json:"overrideType" yaml:"overrideType"`
 }
@@ -48,5 +50,18 @@ func GetOverrideConfig(overrideConfigFile string) (*OverrideConfig, error) {
 
 	overrideConfig := &OverrideConfig{}
 	err = json.Unmarshal(contents, overrideConfig)
+
+	// Makes sure the first character is upper case, as this is how the generator handles properties.
+	for _, overrideProperty := range overrideConfig.Properties {
+		i := 0
+		for _, pathElement := range overrideProperty.Path {
+			runes := []rune(pathElement)
+			if unicode.IsLower(runes[0]) {
+				overrideProperty.Path[i] = strings.Title(pathElement)
+			}
+			i++
+		}
+	}
+
 	return overrideConfig, err
 }
