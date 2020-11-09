@@ -1,4 +1,5 @@
 {
+  "$id": "http://test-network-function.com/schemas/claim.schema.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "version": "v0.0.5",
   "description": "Represents a test-network-function claim.",

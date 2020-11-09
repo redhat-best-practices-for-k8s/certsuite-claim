@@ -25,7 +25,7 @@ import (
 )
 
 const (
-	claimSchemaFile                      = "claim-schema.json"
+	claimSchemaFile                      = "claim.schema.json"
 	claimSchemaGoPackage                 = "claim"
 	copyrightNoticeFile                  = "generated-copyright-notice.txt"
 	errorApplyingOverrideConfigExitCode  = 3
