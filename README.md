@@ -21,6 +21,14 @@ ambiguity between `claim-schema.json` and a particular language binding, the for
 A GoLang implementation of for `claim` is exposed through `pkg/claim/schema.go`.  This is currently the only language
 binding. 
 
+### Requirements
+At a minimum, the following dependencies must be installed to work with the GoLang bindings:
+
+Dependency|Minimum Version
+---|---
+[GoLang](https://golang.org/dl/)|1.14
+[golangci-lint](https://golangci-lint.run/usage/install/)|1.32.2
+
 ## Modifying the claim schema
 
 In order to make changes to `claim-schema.json`, please follow these steps.
