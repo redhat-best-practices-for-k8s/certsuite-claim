@@ -14,13 +14,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/a-h/generate"
-	igenerate "github.com/redhat-nfvpe/test-network-function-claim/internal/generate"
 	"io"
 	"io/ioutil"
 	"os"
 	"path"
 	"time"
+
+	"github.com/a-h/generate"
+	igenerate "github.com/redhat-nfvpe/test-network-function-claim/internal/generate"
 )
 
 const (

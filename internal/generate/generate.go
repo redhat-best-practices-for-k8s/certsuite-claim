@@ -14,10 +14,11 @@ package generate
 
 import (
 	"fmt"
-	"github.com/a-h/generate"
 	"io"
 	"os"
 	"regexp"
+
+	"github.com/a-h/generate"
 )
 
 const (
@@ -40,7 +41,7 @@ func New(outputGoFile string, inputFiles ...string) (*generate.Generator, io.Wri
 		return nil, nil, err
 	}
 
-	var w io.Writer = os.Stdout
+	var w io.Writer
 	w, err = os.Create(outputGoFile)
 	if err != nil {
 		return nil, nil, err
@@ -48,7 +49,7 @@ func New(outputGoFile string, inputFiles ...string) (*generate.Generator, io.Wri
 	return g, w, nil
 }
 
-func apply(parentStruct generate.Struct, property, overrideType string, path []string) error {
+func apply(parentStruct *generate.Struct, property, overrideType string, path []string) error {
 	if replacementField, ok := parentStruct.Fields[property]; ok {
 		replacementField.Type = overrideType
 		parentStruct.Fields[property] = replacementField
@@ -59,7 +60,7 @@ func apply(parentStruct generate.Struct, property, overrideType string, path []s
 
 func getFieldType(typ string) (string, error) {
 	matches := fieldTypeRegex.FindStringSubmatch(typ)
-	if matches != nil && len(matches) >= fieldTypeRegexIndex {
+	if len(matches) >= fieldTypeRegexIndex {
 		return matches[fieldTypeRegexIndex], nil
 	}
 	return "", fmt.Errorf("couldn't determine type for erasure: %s", typ)
@@ -79,10 +80,8 @@ func applyOverrideConfiguration(g *generate.Generator, overrideType string, path
 			if err != nil {
 				return err
 			}
-			if _, ok := g.Structs[fieldType]; ok {
-				delete(g.Structs, fieldType)
-			}
-			return apply(parentStruct, fieldName, overrideType, path)
+			delete(g.Structs, fieldType)
+			return apply(&parentStruct, fieldName, overrideType, path)
 		}
 	}
 	return fmt.Errorf("incorrect path: %s", path)

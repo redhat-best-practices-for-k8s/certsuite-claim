@@ -14,17 +14,18 @@ package claim_test
 
 import (
 	"encoding/json"
-	"github.com/redhat-nfvpe/test-network-function-claim/pkg/claim"
-	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"path"
 	"testing"
+
+	"github.com/redhat-nfvpe/test-network-function-claim/pkg/claim"
+	"github.com/stretchr/testify/assert"
 )
 
 type testCase struct {
 	expectedMarshallJSONError bool
-	expectedStartTime         string
-	expectedEndTime           string
+	expectedStartTime         string // nolint:structcheck // structcheck incorrectly reports field is unused.
+	expectedEndTime           string // nolint:structcheck // structcheck incorrectly reports field is unused.
 }
 
 var testCases = map[string]*testCase{
