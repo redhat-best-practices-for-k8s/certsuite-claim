@@ -1,8 +1,8 @@
 {
   "$id": "http://test-network-function.com/schemas/claim.schema.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "version": "v0.0.5",
-  "description": "Represents a test-network-function claim.",
+  "version": "v0.0.6",
+  "description": "A test-network-function claim is an attestation of the tests performed, the results and the various configurations.  Since a claim must be reproducible, it also includes an overview of the systems under test and their physical configurations.",
   "type": "object",
   "properties": {
     "claim": {
@@ -14,51 +14,52 @@
             "startTime": {
               "type": "string",
               "format": "date-time",
-              "description": "The claim evaluation UTC start time."
+              "description": "The UTC start time of a claim evaluation.  This is recorded when the test-network-function test suite is invoked."
             },
             "endTime": {
               "type": "string",
               "format": "date-time",
-              "description": "The claim evaluation UTC end time."
+              "description": "The UTC end time of a claim evaluation.  This is recorded when the test-network-function test suite completes."
             }
           },
           "additionalProperties": false,
-          "required": ["startTime", "endTime"]
+          "required": [
+            "startTime",
+            "endTime"
+          ]
         },
         "versions": {
           "type": "object",
           "properties": {
             "tnf": {
               "type": "string",
-              "description": "The test-network-function (tnf) version."
-            },
-            "openshift": {
-              "type": "string",
-              "description": "The test-network-function (tnf) version."
+              "description": "The test-network-function (tnf) release version."
             }
           },
           "additionalProperties": false,
-          "required": ["openshift", "tnf"]
+          "required": [
+            "tnf"
+          ]
         },
         "configurations": {
           "type": "object",
-          "description": "Key/Value where the key is the configuration name.",
+          "description": "Tests within test-network-function often require configuration.  For example, the generic test suite requires listing all CNF containers.  This information is used to derive per-container IP address information, which is then used as input to the connectivity test suite.  Test suites within test-network-function may use multiple configurations, but each with a unique name.",
           "additionalProperties": {
             "type": "object",
-            "description": "Key/Value where the key is the configuration item."
+            "description": "Tests within test-network-function often require configuration.  For example, the generic test suite requires listing all CNF containers.  This information is used to derive per-container IP address information, which is then used as input to the connectivity test suite.  Test suites within test-network-function may use multiple configurations, each of which is arbitrary in structure and use case specific."
           }
         },
-        "hosts": {
+        "nodes": {
           "type": "object",
-          "description": "Hostname/payload key/value information for all hosts in the cluster.",
+          "description": "An OpenShift cluster is composed of an arbitrary number of Nodes used for platform and application services.  Since a claim must be reproducible, a variety of per-Node information must be collected and stored in the claim.  Node names are unique within a given OpenShift cluster.",
           "additionalProperties": {
             "type": "object",
-            "description": "A description of a host using the Unix lshw command."
+            "description": "An OpenShift cluster is composed of an arbitrary number of Nodes used for platform and application services.  Since a claim must be reproducible, a variety of per-Node information must be collected and stored in the claim.  The payload for a given Node is arbitrary, since the information gathered for a particular Node depends on its Roles."
           }
         },
         "results": {
           "type": "object",
-          "description": "The test results."
+          "description": "The test-network-function test results.  Results are a JSON representation of the JUnit output."
         }
       },
       "additionalProperties": false,
@@ -73,5 +74,7 @@
     }
   },
   "additionalProperties": false,
-  "required": ["claim"]
+  "required": [
+    "claim"
+  ]
 }
