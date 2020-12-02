@@ -4,6 +4,10 @@
 [test-network-function](https://github.com/redhat-nfvpe/test-network-function) claim.
 
 A claim contains:
+* The `test-network-function` version used for testing. *Note*:  The claim keeps track of only the
+`test-network-function` version, and not individual test versions.  For the current offering, the tests included in a
+`test-network-function` release are immutable, and the source for all included tests is public.  Any changes to provided
+tests require a subsequent `test-network-function` release.
 * A start time for the claim evaluation.
 * A description of the Hardware System(s) Under Test
 * All test configurations used by tests.
