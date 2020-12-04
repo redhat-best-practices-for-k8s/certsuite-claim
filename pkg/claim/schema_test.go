@@ -24,8 +24,8 @@ import (
 
 type testCase struct {
 	expectedMarshallJSONError bool
-	expectedStartTime         string // nolint:structcheck // structcheck incorrectly reports field is unused.
-	expectedEndTime           string // nolint:structcheck // structcheck incorrectly reports field is unused.
+	expectedStartTime         string
+	expectedEndTime           string
 }
 
 var testCases = map[string]*testCase{
