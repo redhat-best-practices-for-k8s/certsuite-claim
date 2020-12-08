@@ -1,7 +1,6 @@
 {
-  "$id": "http://test-network-function.com/schemas/claim.schema.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "version": "v0.0.7",
+  "version": "v0.0.8",
   "description": "A test-network-function claim is an attestation of the tests performed, the results and the various configurations.  Since a claim must be reproducible, it also includes an overview of the systems under test and their physical configurations.",
   "type": "object",
   "properties": {
@@ -64,11 +63,10 @@
       },
       "additionalProperties": false,
       "required": [
-        "startTime",
-        "endTime",
+        "metadata",
         "versions",
         "configurations",
-        "hosts",
+        "nodes",
         "results"
       ]
     }

@@ -9,7 +9,7 @@
     }, {
       "path": [
         "claim",
-        "hosts"
+        "nodes"
       ],
       "overrideType": "map[string]interface{}"
     }, {
