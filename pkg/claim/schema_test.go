@@ -14,6 +14,7 @@ package claim_test
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"path"
 	"testing"
@@ -68,6 +69,7 @@ func TestRoot_MarshalJSON(t *testing.T) {
 		// try to UnmarshallJSON the input
 		root := &claim.Root{}
 		err = json.Unmarshal(contents, root)
+		fmt.Println(testCaseName)
 		assert.Equal(t, testCaseDefinition.expectedMarshallJSONError, err != nil)
 
 		if testCaseDefinition.expectedMarshallJSONError == false {

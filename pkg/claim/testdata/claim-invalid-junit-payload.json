@@ -5,12 +5,11 @@
       "endTime": "1970-01-01T10:05:08+01:00"
     },
     "versions": {
-      "tnf": "v0.0.1",
-      "openshift": "4.4.3"
+      "tnf": "v0.0.1"
     },
     "configurations": {},
     "results": false,
-    "hosts": {
+    "nodes": {
       "host1": {
         "lshwOutput": {
           "id": "raspberrypi",
