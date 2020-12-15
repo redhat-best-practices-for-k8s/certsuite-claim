@@ -14,11 +14,13 @@ tests require a subsequent `test-network-function` release.
 * All tests run, and their respective results.
 * An end time for the claim evaluation.
 
-`claim-schema.json` defines the claim schema using
+`schemas/claim.schema.json` defines the claim schema using
 [JSON Schema Draft-07](https://json-schema.org/draft-07/json-schema-release-notes.html).  JSON Schema serves as the
 only definition language for a `test-network-function` claim.  In other words, even though other language bindings are
-possible (and some provided), the ultimate claim definition is `claim-schema.json`.  In the unfortunate event of
-ambiguity between `claim-schema.json` and a particular language binding, the former rules.
+possible (and some provided), the ultimate claim definition is `claim.schema.json`.  In the unfortunate event of
+ambiguity between `claim.schema.json` and a particular language binding, the former rules.
+
+[claim.example.json](schemas/claim.example.json) is an example of a claim file.
 
 ## Language Bindings
 
@@ -35,11 +37,11 @@ Dependency|Minimum Version
 
 ## Modifying the claim schema
 
-In order to make changes to `claim-schema.json`, please follow these steps.
+In order to make changes to `claim.schema.json`, please follow these steps.
  
 ### Edit the file as you see fit
 
-Make the appropriate changes and save the `claim-schema.json`.
+Make the appropriate changes and save the `claim.schema.json`.
 
 ### Build the language bindings
 
@@ -103,16 +105,32 @@ In order to install `jsonschema`, issue the following command:
 In order to validate a given schema, issue the following command:
 
 ```shell script
-> jsonschema -i <path_to_claim_file> ./claim-schema.json
+> jsonschema -i <path_to_claim_file> ./schemas/claim.schema.json
 ```
 
 For a successful validation of the input claim, one should expect no output and a `0` exit code.
 
 ```shell script
-> jsonschema -i ./sample.json ./claim-schema.json
+> jsonschema -i ./sample.json ./schemas/claim.schema.json
 > echo $?
 0
 > 
 ```
 
 If the claim does not adhere to the schema, `jsconschema` outputs an appropriate error message describing the issue.
+
+#### Running the validation utility against the example claim
+
+In order to run the validation utility against the example, run the following command:
+
+```shell script
+make validate-example
+```
+
+The output should resemble the following:
+
+```shell script
+> make validate-example
+jsonschema -i schemas/claim.example.json schemas/claim.schema.json
+>
+```

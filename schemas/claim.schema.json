@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "version": "v0.0.8",
+  "version": "v1.0.0",
   "description": "A test-network-function claim is an attestation of the tests performed, the results and the various configurations.  Since a claim must be reproducible, it also includes an overview of the systems under test and their physical configurations.",
   "type": "object",
   "properties": {
@@ -50,11 +50,7 @@
         },
         "nodes": {
           "type": "object",
-          "description": "An OpenShift cluster is composed of an arbitrary number of Nodes used for platform and application services.  Since a claim must be reproducible, a variety of per-Node information must be collected and stored in the claim.  Node names are unique within a given OpenShift cluster.",
-          "additionalProperties": {
-            "type": "object",
-            "description": "An OpenShift cluster is composed of an arbitrary number of Nodes used for platform and application services.  Since a claim must be reproducible, a variety of per-Node information must be collected and stored in the claim.  The payload for a given Node is arbitrary, since the information gathered for a particular Node depends on its Roles."
-          }
+          "description": "An OpenShift cluster is composed of an arbitrary number of Nodes used for platform and application services.  Since a claim must be reproducible, a variety of per-Node information must be collected and stored in the claim.  Node names are unique within a given OpenShift cluster."
         },
         "results": {
           "type": "object",
