@@ -26,3 +26,6 @@ lint:
 
 tests:
 	go test -coverprofile=cover.out ./...
+
+validate-example:
+	jsonschema -i schemas/claim.example.json schemas/claim.schema.json

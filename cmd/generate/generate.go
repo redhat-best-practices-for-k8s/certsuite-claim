@@ -25,7 +25,7 @@ import (
 )
 
 const (
-	claimSchemaFile                      = "claim.schema.json"
+	claimSchemaFileName                  = "claim.schema.json"
 	claimSchemaGoPackage                 = "claim"
 	copyrightNoticeFile                  = "generated-copyright-notice.txt"
 	errorApplyingOverrideConfigExitCode  = 3
@@ -34,11 +34,13 @@ const (
 	errorReadingCopyrightNoticeExitCode  = 5
 	errorWritingOutputExitCode           = 4
 	overrideFileLocation                 = "override.json"
+	schemasDirectory                     = "schemas"
 )
 
 var (
-	inputFiles   = []string{claimSchemaFile}
-	outputGoFile = path.Join("pkg", "claim", "schema.go")
+	claimSchemaLocation = path.Join(schemasDirectory, claimSchemaFileName)
+	inputFiles          = []string{claimSchemaLocation}
+	outputGoFile        = path.Join("pkg", "claim", "schema.go")
 )
 
 func readCopyrightNoticeFile() ([]byte, error) {
