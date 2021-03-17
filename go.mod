@@ -1,4 +1,4 @@
-module github.com/redhat-nfvpe/test-network-function-claim
+module github.com/test-network-function/test-network-function-claim
 
 go 1.14
 

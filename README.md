@@ -1,7 +1,7 @@
 # test-network-function-claim
 
 `test-network-function-claim` provides the definition for a
-[test-network-function](https://github.com/redhat-nfvpe/test-network-function) claim.
+[test-network-function](https://github.com/test-network-function/test-network-function) claim.
 
 A claim contains:
 * The `test-network-function` version used for testing. *Note*:  The claim keeps track of only the
