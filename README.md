@@ -1,4 +1,4 @@
-# test-network-function-claim
+# test-network-function-claim ![build](https://github.com/test-network-function/test-network-function-claim/actions/workflows/merge.yml/badge.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/test-network-function/test-network-function-claim)](https://goreportcard.com/report/github.com/test-network-function/test-network-function-claim)
 
 `test-network-function-claim` provides the definition for a
 [test-network-function](https://github.com/test-network-function/test-network-function) claim.
