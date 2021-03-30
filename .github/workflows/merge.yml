@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build and Run Tests
-        run: make all
+        run: make generate-golang-schema build tests
 
   close_job:
     if: github.event.pull_request.merged == false
