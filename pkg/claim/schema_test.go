@@ -41,6 +41,14 @@ var testCases = map[string]*testCase{
 	"claim-invalid-additional-property": {
 		expectedMarshallJSONError: true,
 	},
+	"claim-invalid-bool-results": {
+		expectedMarshallJSONError: true,
+	},
+	// A little confusing;  since we remap the "results" field, this interface{} value is not actually checked.
+	// This is a limitation of the JSON Schema go client generator, and is perfectly fine for this context.
+	"claim-invalid-non-result-result": {
+		expectedMarshallJSONError: false,
+	},
 	"invalid-json": {
 		expectedMarshallJSONError: true,
 	},

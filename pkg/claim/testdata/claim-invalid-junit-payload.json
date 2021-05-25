@@ -8,7 +8,19 @@
       "tnf": "v0.0.1"
     },
     "configurations": {},
-    "results": false,
+    "rawResults": false,
+    "results": {
+      "{\"url\":\"https://test-network-function.com/tnf/test\",{\"version\":\"v1.0.0\"}": [
+        {
+          "testText": "someText",
+          "isMeasurement": false,
+          "filename": "/dev/null",
+          "lineNumber": 4,
+          "passed": true,
+          "duration": 100
+        }
+      ]
+    },
     "nodes": {
       "host1": {
         "lshwOutput": {

@@ -1,35 +1,77 @@
 {
     "claim": {
         "configurations": {
+            "certifiedcontainerinfo": [
+                {
+                    "name": "nginx-116",
+                    "repository": "rhel8"
+                }
+            ],
+            "certifiedoperatorinfo": [
+                {
+                    "name": "etcd-operator",
+                    "organization": "redhat-marketplace"
+                }
+            ],
+            "cnfs": [
+                {
+                    "name": "ubuntu",
+                    "namespace": "default",
+                    "tests": [
+                        "PRIVILEGED_POD",
+                        "PRIVILEGED_ROLE"
+                    ]
+                }
+            ],
             "generic": {
-                "containersUnderTest": {
-                    "{\"namespace\":\"default\",\"podName\":\"vendor-container1-649d949d4c-stxcc\",\"containerName\":\"vendor-container1\"}": {
+                "containersUnderTest": [
+                    {
+                        "containerName": "test",
                         "defaultNetworkDevice": "eth0",
                         "multusIpAddresses": [
-                            "192.168.1.3"
-                        ]
-                    },
-                    "{\"namespace\":\"default\",\"podName\":\"vendor-container2-98f77dfbc-6c6dc\",\"containerName\":\"vendor-container2\"}": {
-                        "defaultNetworkDevice": "eth0",
-                        "multusIpAddresses": [
-                            "192.168.1.3"
-                        ]
+                            "10.217.0.8"
+                        ],
+                        "namespace": "tnf",
+                        "podName": "test"
                     }
+                ],
+                "excludeContainersFromConnectivityTests": null,
+                "fsDiffMasterContainer": {
+                    "containerName": "",
+                    "namespace": "",
+                    "podName": ""
                 },
-                "partnerContainers": {
-                    "{\"namespace\":\"default\",\"podName\":\"partner\",\"containerName\":\"partner\"}": {
+                "partnerContainers": [
+                    {
+                        "containerName": "partner",
                         "defaultNetworkDevice": "eth0",
                         "multusIpAddresses": [
-                            "192.168.1.1"
-                        ]
+                            "10.217.0.29"
+                        ],
+                        "namespace": "tnf",
+                        "podName": "partner"
                     }
-                },
-                "testOrchestrator": "{\"namespace\":\"default\",\"podName\":\"partner\",\"containerName\":\"partner\"}"
-            }
+                ],
+                "testOrchestrator": {
+                    "containerName": "partner",
+                    "namespace": "tnf",
+                    "podName": "partner"
+                }
+            },
+            "operators": [
+                {
+                    "name": "etcdoperator.v0.9.4",
+                    "namespace": "default",
+                    "subscriptionName": "etcd",
+                    "tests": [
+                        "OPERATOR_STATUS"
+                    ]
+                }
+            ]
         },
         "metadata": {
-            "endTime": "2020-12-14T19:26:13+00:00",
-            "startTime": "2020-12-14T19:25:56+00:00"
+            "endTime": "2021-05-25T19:51:26+00:00",
+            "startTime": "2021-05-25T19:50:56+00:00"
         },
         "nodes": {
             "apiVersion": "v1",
@@ -39,83 +81,261 @@
                     "kind": "Node",
                     "metadata": {
                         "annotations": {
-                            "machineconfiguration.openshift.io/currentConfig": "rendered-master-c780491175691e89d2b3b34c86baf1a6",
-                            "machineconfiguration.openshift.io/desiredConfig": "rendered-master-c780491175691e89d2b3b34c86baf1a6",
-                            "machineconfiguration.openshift.io/reason": "",
-                            "machineconfiguration.openshift.io/state": "Done",
+                            "kubeadm.alpha.kubernetes.io/cri-socket": "/var/run/dockershim.sock",
+                            "node.alpha.kubernetes.io/ttl": "0",
                             "volumes.kubernetes.io/controller-managed-attach-detach": "true"
                         },
-                        "creationTimestamp": "2020-11-13T16:42:44Z",
+                        "creationTimestamp": "2020-12-17T19:08:13Z",
                         "labels": {
                             "beta.kubernetes.io/arch": "amd64",
                             "beta.kubernetes.io/os": "linux",
                             "kubernetes.io/arch": "amd64",
-                            "kubernetes.io/hostname": "master-0",
+                            "kubernetes.io/hostname": "minikube",
                             "kubernetes.io/os": "linux",
+                            "minikube.k8s.io/commit": "2c82918e2347188e21c4e44c8056fc80408bce10",
+                            "minikube.k8s.io/name": "minikube",
+                            "minikube.k8s.io/updated_at": "2020_12_17T14_08_15_0700",
+                            "minikube.k8s.io/version": "v1.14.2",
                             "node-role.kubernetes.io/master": "",
-                            "node.openshift.io/os_id": "rhcos"
+                            "role": "worker"
                         },
-                        "name": "master-0",
-                        "resourceVersion": "22191357",
-                        "selfLink": "/api/v1/nodes/master-0",
-                        "uid": "e0c8fac4-07dd-4dd3-a181-9415d30f4235"
+                        "managedFields": [
+                            {
+                                "apiVersion": "v1",
+                                "fieldsType": "FieldsV1",
+                                "fieldsV1": {
+                                    "f:metadata": {
+                                        "f:annotations": {
+                                            "f:kubeadm.alpha.kubernetes.io/cri-socket": {}
+                                        },
+                                        "f:labels": {
+                                            "f:node-role.kubernetes.io/master": {}
+                                        }
+                                    }
+                                },
+                                "manager": "kubeadm",
+                                "operation": "Update",
+                                "time": "2020-12-17T19:08:15Z"
+                            },
+                            {
+                                "apiVersion": "v1",
+                                "fieldsType": "FieldsV1",
+                                "fieldsV1": {
+                                    "f:metadata": {
+                                        "f:labels": {
+                                            "f:minikube.k8s.io/commit": {},
+                                            "f:minikube.k8s.io/name": {},
+                                            "f:minikube.k8s.io/updated_at": {},
+                                            "f:minikube.k8s.io/version": {}
+                                        }
+                                    }
+                                },
+                                "manager": "kubectl-label",
+                                "operation": "Update",
+                                "time": "2020-12-17T19:08:16Z"
+                            },
+                            {
+                                "apiVersion": "v1",
+                                "fieldsType": "FieldsV1",
+                                "fieldsV1": {
+                                    "f:metadata": {
+                                        "f:labels": {
+                                            "f:role": {}
+                                        }
+                                    }
+                                },
+                                "manager": "oc",
+                                "operation": "Update",
+                                "time": "2021-04-20T14:25:56Z"
+                            },
+                            {
+                                "apiVersion": "v1",
+                                "fieldsType": "FieldsV1",
+                                "fieldsV1": {
+                                    "f:metadata": {
+                                        "f:annotations": {
+                                            "f:node.alpha.kubernetes.io/ttl": {}
+                                        },
+                                        "f:labels": {
+                                            "f:beta.kubernetes.io/arch": {},
+                                            "f:beta.kubernetes.io/os": {}
+                                        }
+                                    }
+                                },
+                                "manager": "kube-controller-manager",
+                                "operation": "Update",
+                                "time": "2021-04-30T12:22:25Z"
+                            },
+                            {
+                                "apiVersion": "v1",
+                                "fieldsType": "FieldsV1",
+                                "fieldsV1": {
+                                    "f:metadata": {
+                                        "f:annotations": {
+                                            ".": {},
+                                            "f:volumes.kubernetes.io/controller-managed-attach-detach": {}
+                                        },
+                                        "f:labels": {
+                                            ".": {},
+                                            "f:kubernetes.io/arch": {},
+                                            "f:kubernetes.io/hostname": {},
+                                            "f:kubernetes.io/os": {}
+                                        }
+                                    },
+                                    "f:status": {
+                                        "f:addresses": {
+                                            ".": {},
+                                            "k:{\"type\":\"Hostname\"}": {
+                                                ".": {},
+                                                "f:address": {},
+                                                "f:type": {}
+                                            },
+                                            "k:{\"type\":\"InternalIP\"}": {
+                                                ".": {},
+                                                "f:address": {},
+                                                "f:type": {}
+                                            }
+                                        },
+                                        "f:allocatable": {
+                                            ".": {},
+                                            "f:cpu": {},
+                                            "f:ephemeral-storage": {},
+                                            "f:hugepages-2Mi": {},
+                                            "f:memory": {},
+                                            "f:pods": {}
+                                        },
+                                        "f:capacity": {
+                                            ".": {},
+                                            "f:cpu": {},
+                                            "f:ephemeral-storage": {},
+                                            "f:hugepages-2Mi": {},
+                                            "f:memory": {},
+                                            "f:pods": {}
+                                        },
+                                        "f:conditions": {
+                                            ".": {},
+                                            "k:{\"type\":\"DiskPressure\"}": {
+                                                ".": {},
+                                                "f:lastHeartbeatTime": {},
+                                                "f:lastTransitionTime": {},
+                                                "f:message": {},
+                                                "f:reason": {},
+                                                "f:status": {},
+                                                "f:type": {}
+                                            },
+                                            "k:{\"type\":\"MemoryPressure\"}": {
+                                                ".": {},
+                                                "f:lastHeartbeatTime": {},
+                                                "f:lastTransitionTime": {},
+                                                "f:message": {},
+                                                "f:reason": {},
+                                                "f:status": {},
+                                                "f:type": {}
+                                            },
+                                            "k:{\"type\":\"PIDPressure\"}": {
+                                                ".": {},
+                                                "f:lastHeartbeatTime": {},
+                                                "f:lastTransitionTime": {},
+                                                "f:message": {},
+                                                "f:reason": {},
+                                                "f:status": {},
+                                                "f:type": {}
+                                            },
+                                            "k:{\"type\":\"Ready\"}": {
+                                                ".": {},
+                                                "f:lastHeartbeatTime": {},
+                                                "f:lastTransitionTime": {},
+                                                "f:message": {},
+                                                "f:reason": {},
+                                                "f:status": {},
+                                                "f:type": {}
+                                            }
+                                        },
+                                        "f:daemonEndpoints": {
+                                            "f:kubeletEndpoint": {
+                                                "f:Port": {}
+                                            }
+                                        },
+                                        "f:images": {},
+                                        "f:nodeInfo": {
+                                            "f:architecture": {},
+                                            "f:bootID": {},
+                                            "f:containerRuntimeVersion": {},
+                                            "f:kernelVersion": {},
+                                            "f:kubeProxyVersion": {},
+                                            "f:kubeletVersion": {},
+                                            "f:machineID": {},
+                                            "f:operatingSystem": {},
+                                            "f:osImage": {},
+                                            "f:systemUUID": {}
+                                        }
+                                    }
+                                },
+                                "manager": "kubelet",
+                                "operation": "Update",
+                                "time": "2021-05-25T19:45:56Z"
+                            }
+                        ],
+                        "name": "minikube",
+                        "namespace": "",
+                        "resourceVersion": "1047579",
+                        "selfLink": "/api/v1/nodes/minikube",
+                        "uid": "c2978df4-23d3-417e-bb90-82c78791cba4"
                     },
                     "spec": {},
                     "status": {
                         "addresses": [
                             {
-                                "address": "192.168.1.110",
+                                "address": "192.168.99.106",
                                 "type": "InternalIP"
                             },
                             {
-                                "address": "master-0",
+                                "address": "minikube",
                                 "type": "Hostname"
                             }
                         ],
                         "allocatable": {
-                            "cpu": "79500m",
-                            "ephemeral-storage": "1078575967288",
-                            "hugepages-1Gi": "0",
+                            "cpu": "2",
+                            "ephemeral-storage": "17784752Ki",
                             "hugepages-2Mi": "0",
-                            "memory": "190981Mi",
-                            "pods": "250"
+                            "memory": "3934732Ki",
+                            "pods": "110"
                         },
                         "capacity": {
-                            "cpu": "80",
-                            "ephemeral-storage": "1144038Mi",
-                            "hugepages-1Gi": "0",
+                            "cpu": "2",
+                            "ephemeral-storage": "17784752Ki",
                             "hugepages-2Mi": "0",
-                            "memory": "192105Mi",
-                            "pods": "250"
+                            "memory": "3934732Ki",
+                            "pods": "110"
                         },
                         "conditions": [
                             {
-                                "lastHeartbeatTime": "2020-12-14T19:23:17Z",
-                                "lastTransitionTime": "2020-11-19T21:02:44Z",
+                                "lastHeartbeatTime": "2021-05-25T19:45:56Z",
+                                "lastTransitionTime": "2021-04-30T12:22:32Z",
                                 "message": "kubelet has sufficient memory available",
                                 "reason": "KubeletHasSufficientMemory",
                                 "status": "False",
                                 "type": "MemoryPressure"
                             },
                             {
-                                "lastHeartbeatTime": "2020-12-14T19:23:17Z",
-                                "lastTransitionTime": "2020-11-19T21:02:44Z",
+                                "lastHeartbeatTime": "2021-05-25T19:45:56Z",
+                                "lastTransitionTime": "2021-04-30T12:22:32Z",
                                 "message": "kubelet has no disk pressure",
                                 "reason": "KubeletHasNoDiskPressure",
                                 "status": "False",
                                 "type": "DiskPressure"
                             },
                             {
-                                "lastHeartbeatTime": "2020-12-14T19:23:17Z",
-                                "lastTransitionTime": "2020-11-19T21:02:44Z",
+                                "lastHeartbeatTime": "2021-05-25T19:45:56Z",
+                                "lastTransitionTime": "2021-04-30T12:22:32Z",
                                 "message": "kubelet has sufficient PID available",
                                 "reason": "KubeletHasSufficientPID",
                                 "status": "False",
                                 "type": "PIDPressure"
                             },
                             {
-                                "lastHeartbeatTime": "2020-12-14T19:23:17Z",
-                                "lastTransitionTime": "2020-11-19T21:02:44Z",
+                                "lastHeartbeatTime": "2021-05-25T19:45:56Z",
+                                "lastTransitionTime": "2021-04-30T12:22:32Z",
                                 "message": "kubelet is posting ready status",
                                 "reason": "KubeletReady",
                                 "status": "True",
@@ -130,23 +350,106 @@
                         "images": [
                             {
                                 "names": [
-                                    "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:8cea2679f40cd5e5bb95b7f511d444ea7ad74800bcc366d0129eb682459cdffd",
-                                    "quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:<none>"
+                                    "k8s.gcr.io/etcd@sha256:4ad90a11b55313b182afc186b9876c8e891531b8db4c9bf1541953021618d0e2",
+                                    "k8s.gcr.io/etcd:3.4.13-0"
                                 ],
-                                "sizeBytes": 819896785
+                                "sizeBytes": 253392289
+                            },
+                            {
+                                "names": [
+                                    "quay.io/testnetworkfunction/cnf-test-partner@sha256:e117af66264c5e6db9effb5ebe1b4c79893bc44f281676446553e98eb4041efe",
+                                    "quay.io/testnetworkfunction/cnf-test-partner:latest"
+                                ],
+                                "sizeBytes": 233167977
+                            },
+                            {
+                                "names": [
+                                    "quay.io/testnetworkfunction/cnf-test-partner@sha256:475ff78d5fba413a2f28e6e74864ba8ac470f398bb980f78e6f3eeac512607ec"
+                                ],
+                                "sizeBytes": 233105030
+                            },
+                            {
+                                "names": [
+                                    "kubernetesui/dashboard@sha256:45ef224759bc50c84445f233fffae4aa3bdaec705cb5ee4bfe36d183b270b45d",
+                                    "kubernetesui/dashboard:v2.0.3"
+                                ],
+                                "sizeBytes": 224634157
+                            },
+                            {
+                                "names": [
+                                    "k8s.gcr.io/kube-apiserver@sha256:fc905eab708c6abbdf0ef0d47667592b948fea3adf31d71b19b5205340d00011",
+                                    "k8s.gcr.io/kube-apiserver:v1.19.2"
+                                ],
+                                "sizeBytes": 118778218
+                            },
+                            {
+                                "names": [
+                                    "k8s.gcr.io/kube-proxy@sha256:fa7c9d19680704e246873eb600c02fa95167d5c58e56d56ba9ed30b7c4150ac1",
+                                    "k8s.gcr.io/kube-proxy:v1.19.2"
+                                ],
+                                "sizeBytes": 117686573
+                            },
+                            {
+                                "names": [
+                                    "k8s.gcr.io/kube-controller-manager@sha256:c94b98d9f79bdfe33010c313891d99ed50858d6f04ceef865e7904c338dad913",
+                                    "k8s.gcr.io/kube-controller-manager:v1.19.2"
+                                ],
+                                "sizeBytes": 110778730
+                            },
+                            {
+                                "names": [
+                                    "ubuntu@sha256:c95a8e48bf88e9849f3e0f723d9f49fa12c5a00cfc6e60d2bc99d87555295e4c",
+                                    "ubuntu:latest"
+                                ],
+                                "sizeBytes": 72898198
+                            },
+                            {
+                                "names": [
+                                    "k8s.gcr.io/kube-scheduler@sha256:bb058c7394fad4d968d366b8b372698a1144a1c3c6de52cdf46ff050ccfd31ff",
+                                    "k8s.gcr.io/kube-scheduler:v1.19.2"
+                                ],
+                                "sizeBytes": 45656426
+                            },
+                            {
+                                "names": [
+                                    "k8s.gcr.io/coredns@sha256:73ca82b4ce829766d4f1f10947c3a338888f876fbed0540dc849c89ff256e90c",
+                                    "k8s.gcr.io/coredns:1.7.0"
+                                ],
+                                "sizeBytes": 45227747
+                            },
+                            {
+                                "names": [
+                                    "kubernetesui/metrics-scraper@sha256:555981a24f184420f3be0c79d4efb6c948a85cfce84034f85a563f4151a81cbf",
+                                    "kubernetesui/metrics-scraper:v1.0.4"
+                                ],
+                                "sizeBytes": 36937728
+                            },
+                            {
+                                "names": [
+                                    "gcr.io/k8s-minikube/storage-provisioner@sha256:5d8c9e69200846ff740bca872d681d2a736014386e4006fd26c4bf24ef7813ec",
+                                    "gcr.io/k8s-minikube/storage-provisioner:v3"
+                                ],
+                                "sizeBytes": 29667328
+                            },
+                            {
+                                "names": [
+                                    "k8s.gcr.io/pause@sha256:927d98197ec1141a368550822d18fa1c60bdae27b78b0c004f705f548c07814f",
+                                    "k8s.gcr.io/pause:3.2"
+                                ],
+                                "sizeBytes": 682696
                             }
                         ],
                         "nodeInfo": {
                             "architecture": "amd64",
-                            "bootID": "f24d12e7-202b-4978-bf70-f96f1b5ea3bd",
-                            "containerRuntimeVersion": "cri-o://1.17.4-8.dev.rhaos4.4.git5f5c5e4.el8",
-                            "kernelVersion": "4.18.0-147.8.1.el8_1.x86_64",
-                            "kubeProxyVersion": "v1.17.1",
-                            "kubeletVersion": "v1.17.1",
-                            "machineID": "89842748b08741f99dd5db5433ae16b6",
+                            "bootID": "321cb5db-c948-4d05-964f-89578867c9c2",
+                            "containerRuntimeVersion": "docker://19.3.12",
+                            "kernelVersion": "4.19.114",
+                            "kubeProxyVersion": "v1.19.2",
+                            "kubeletVersion": "v1.19.2",
+                            "machineID": "ace4bb7412e347c0beceec5225de3e0e",
                             "operatingSystem": "linux",
-                            "osImage": "Red Hat Enterprise Linux CoreOS 44.81.202004260825-0 (Ootpa)",
-                            "systemUUID": "80ff6508-d095-e711-906e-0017a4403562"
+                            "osImage": "Buildroot 2020.02.6",
+                            "systemUUID": "7ce8204a-daa2-0b4a-9f47-219238662e18"
                         }
                     }
                 }
@@ -157,46 +460,221 @@
                 "selfLink": ""
             }
         },
-        "results": {
+        "rawResults": {
             "cnf-certification-tests_junit": {
                 "testsuite": {
                     "-errors": "0",
-                    "-failures": "0",
+                    "-failures": "2",
                     "-name": "CNF Certification Test Suite",
-                    "-tests": "5",
-                    "-time": "8.376",
+                    "-tests": "14",
+                    "-time": "29.795",
                     "testcase": [
                         {
                             "-classname": "CNF Certification Test Suite",
-                            "-name": "generic Both Pods are on the Default network when a Ping is issued from test(test) to partner(partner) 10.130.4.64 partner(partner) should reply",
-                            "-time": "4.132041197"
+                            "-name": "diagnostic when a cluster is set up and installed with OpenShift should report all available nodeSummary",
+                            "-time": "0.336851587"
                         },
                         {
                             "-classname": "CNF Certification Test Suite",
-                            "-name": "generic Both Pods are on the Default network when a Ping is issued from partner(partner) to test(test) 10.128.8.3 test(test) should reply",
-                            "-time": "4.102927471"
+                            "-name": "generic Testing pod nodeSelector tnf/test",
+                            "-time": "0.199778813"
+                        },
+                        {
+                            "-classname": "CNF Certification Test Suite",
+                            "-name": "generic Both Pods are on the Default network when a Ping is issued from test(test) to partner(partner) 172.17.0.2 partner(partner) should reply",
+                            "-time": "4.097248054"
+                        },
+                        {
+                            "-classname": "CNF Certification Test Suite",
+                            "-name": "generic Both Pods are on the Default network when a Ping is issued from partner(partner) to test(test) 172.17.0.3 test(test) should reply",
+                            "-time": "4.0942123"
                         },
                         {
                             "-classname": "CNF Certification Test Suite",
                             "-name": "generic when test(test) is checked for Red Hat version Should report a proper Red Hat version",
-                            "-time": "0.002270972"
+                            "-time": "0.002831392"
                         },
                         {
                             "-classname": "CNF Certification Test Suite",
                             "-name": "generic when partner(partner) is checked for Red Hat version Should report a proper Red Hat version",
-                            "-time": "0.002174817"
+                            "-time": "0.00206082"
                         },
                         {
                             "-classname": "CNF Certification Test Suite",
-                            "-name": "diagnostic when a cluster is set up and installed with OpenShift should report all available nodeSummary",
-                            "-time": "0.133763681"
+                            "-name": "generic when Reading namespace of test/test Should not be 'default' and should not begin with 'openshift-'",
+                            "-time": "5.4e-06"
+                        },
+                        {
+                            "-classname": "CNF Certification Test Suite",
+                            "-name": "generic when Testing roles and privileges of tnf/test Should have a valid ServiceAccount name",
+                            "-time": "0.168281537"
+                        },
+                        {
+                            "-classname": "CNF Certification Test Suite",
+                            "-name": "generic when Testing roles and privileges of tnf/test Should not have RoleBinding in other namespaces",
+                            "-time": "0.19510103"
+                        },
+                        {
+                            "-classname": "CNF Certification Test Suite",
+                            "-name": "generic when Testing roles and privileges of tnf/test Should not have ClusterRoleBindings",
+                            "-time": "0.204738888"
+                        },
+                        {
+                            "-classname": "CNF Certification Test Suite",
+                            "-name": "generic when Testing services in namespace tnf Should not have services of type NodePort",
+                            "-time": "0.157332642"
+                        },
+                        {
+                            "-classname": "CNF Certification Test Suite",
+                            "-name": "generic Testing pod terminationGracePeriod tnf/test",
+                            "-time": "0.159640871"
+                        },
+                        {
+                            "-classname": "CNF Certification Test Suite",
+                            "-name": "generic when Testing owners of CNF pod Should contain at least one of kind DaemonSet/ReplicaSet",
+                            "-time": "10.004222633",
+                            "failure": {
+                                "#content": "/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go:801\nExpected\n    \u003cint\u003e: 0\nto equal\n    \u003cint\u003e: 1\n/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go:808",
+                                "-type": "Failure"
+                            }
+                        },
+                        {
+                            "-classname": "CNF Certification Test Suite",
+                            "-name": "generic Testing boot params for the pod's node tnf/test",
+                            "-time": "10.170272998",
+                            "failure": {
+                                "#content": "/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go:500\nExpected\n    \u003cint\u003e: 0\nto equal\n    \u003cint\u003e: 1\n/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go:423",
+                                "-type": "Failure"
+                            }
                         }
                     ]
                 }
-            }
+            },
+            "testsExtraInfo": []
+        },
+        "results": {
+            "{\"Url\":\"http://test-network-function.com/testcases/generic/icmpv4-connectivity\",\"Version\":\"v1.0.0\"}": [
+                {
+                    "duration": 4097243052,
+                    "failureReason": "",
+                    "filename": "/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go",
+                    "isMeasurement": false,
+                    "lineNumber": 311,
+                    "passed": true,
+                    "testText": "generic Both Pods are on the Default network when a Ping is issued from test(test) to partner(partner) 172.17.0.2 partner(partner) should reply"
+                },
+                {
+                    "duration": 4094205613,
+                    "failureReason": "",
+                    "filename": "/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go",
+                    "isMeasurement": false,
+                    "lineNumber": 311,
+                    "passed": true,
+                    "testText": "generic Both Pods are on the Default network when a Ping is issued from partner(partner) to test(test) 172.17.0.3 test(test) should reply"
+                }
+            ],
+            "{\"Url\":\"http://test-network-function.com/testcases/generic/namespace-best-practices\",\"Version\":\"v1.0.0\"}": [
+                {
+                    "duration": 2796,
+                    "failureReason": "",
+                    "filename": "/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go",
+                    "isMeasurement": false,
+                    "lineNumber": 355,
+                    "passed": true,
+                    "testText": "generic when Reading namespace of test/test Should not be 'default' and should not begin with 'openshift-'"
+                }
+            ],
+            "{\"Url\":\"http://test-network-function.com/testcases/generic/non-default-grace-period\",\"Version\":\"v1.0.0\"}": [
+                {
+                    "duration": 159628157,
+                    "failureReason": "",
+                    "filename": "/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go",
+                    "isMeasurement": false,
+                    "lineNumber": 373,
+                    "passed": true,
+                    "testText": "generic Testing pod terminationGracePeriod tnf/test"
+                }
+            ],
+            "{\"Url\":\"http://test-network-function.com/testcases/generic/pod-cluster-role-bindings-best-practices\",\"Version\":\"v1.0.0\"}": [
+                {
+                    "duration": 204725410,
+                    "failureReason": "",
+                    "filename": "/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go",
+                    "isMeasurement": false,
+                    "lineNumber": 554,
+                    "passed": true,
+                    "testText": "generic when Testing roles and privileges of tnf/test Should not have ClusterRoleBindings"
+                }
+            ],
+            "{\"Url\":\"http://test-network-function.com/testcases/generic/pod-deployment-best-practices\",\"Version\":\"v1.0.0\"}": [
+                {
+                    "duration": 10003938067,
+                    "failureReason": "/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go:801\nExpected\n    \u003cint\u003e: 0\nto equal\n    \u003cint\u003e: 1\n/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go:808",
+                    "filename": "/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go",
+                    "isMeasurement": false,
+                    "lineNumber": 801,
+                    "passed": false,
+                    "testText": "generic when Testing owners of CNF pod Should contain at least one of kind DaemonSet/ReplicaSet"
+                }
+            ],
+            "{\"Url\":\"http://test-network-function.com/testcases/generic/pod-node-selector-node-affinity-best-practices\",\"Version\":\"v1.0.0\"}": [
+                {
+                    "duration": 199758755,
+                    "failureReason": "",
+                    "filename": "/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go",
+                    "isMeasurement": false,
+                    "lineNumber": 389,
+                    "passed": true,
+                    "testText": "generic Testing pod nodeSelector tnf/test"
+                }
+            ],
+            "{\"Url\":\"http://test-network-function.com/testcases/generic/pod-role-bindings-best-practices\",\"Version\":\"v1.0.0\"}": [
+                {
+                    "duration": 195087641,
+                    "failureReason": "",
+                    "filename": "/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go",
+                    "isMeasurement": false,
+                    "lineNumber": 535,
+                    "passed": true,
+                    "testText": "generic when Testing roles and privileges of tnf/test Should not have RoleBinding in other namespaces"
+                }
+            ],
+            "{\"Url\":\"http://test-network-function.com/testcases/generic/pod-service-account-best-practices\",\"Version\":\"v1.0.0\"}": [
+                {
+                    "duration": 168269817,
+                    "failureReason": "",
+                    "filename": "/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go",
+                    "isMeasurement": false,
+                    "lineNumber": 520,
+                    "passed": true,
+                    "testText": "generic when Testing roles and privileges of tnf/test Should have a valid ServiceAccount name"
+                }
+            ],
+            "{\"Url\":\"http://test-network-function.com/testcases/generic/services-do-not-use-nodeports\",\"Version\":\"v1.0.0\"}": [
+                {
+                    "duration": 157320657,
+                    "failureReason": "",
+                    "filename": "/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go",
+                    "isMeasurement": false,
+                    "lineNumber": 574,
+                    "passed": true,
+                    "testText": "generic when Testing services in namespace tnf Should not have services of type NodePort"
+                }
+            ],
+            "{\"Url\":\"http://test-network-function.com/testcases/generic/unaltered-startup-boot-params\",\"Version\":\"v1.0.0\"}": [
+                {
+                    "duration": 10170095299,
+                    "failureReason": "/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go:500\nExpected\n    \u003cint\u003e: 0\nto equal\n    \u003cint\u003e: 1\n/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go:423",
+                    "filename": "/Users/ryangoulding/workspace/t/test-network-function/test-network-function/generic/suite.go",
+                    "isMeasurement": false,
+                    "lineNumber": 500,
+                    "passed": false,
+                    "testText": "generic Testing boot params for the pod's node tnf/test"
+                }
+            ]
         },
         "versions": {
-            "tnf": "v0.0.3"
+            "tnf": "v1.0.6"
         }
     }
 }
