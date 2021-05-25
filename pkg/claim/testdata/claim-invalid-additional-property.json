@@ -9,7 +9,7 @@
       "tnf": "v0.0.1"
     },
     "configurations": {},
-    "results": {
+    "rawResults": {
       "name": "CNF Certification Test Suite",
       "tests": "7",
       "failures": "1",
@@ -90,6 +90,18 @@
           "classname": "CNF Certification Test Suite",
           "time": "0",
           "skipped": []
+        }
+      ]
+    },
+    "results": {
+      "{\"url\":\"https://test-network-function.com/tnf/test\",{\"version\":\"v1.0.0\"}": [
+        {
+          "testText": "someText",
+          "isMeasurement": false,
+          "filename": "/dev/null",
+          "lineNumber": 4,
+          "passed": true,
+          "duration": 100
         }
       ]
     },

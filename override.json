@@ -3,13 +3,13 @@
     {
       "path": [
         "claim",
-        "configurations"
+        "nodes"
       ],
       "overrideType": "map[string]interface{}"
     }, {
       "path": [
         "claim",
-        "nodes"
+        "rawResults"
       ],
       "overrideType": "map[string]interface{}"
     }, {
