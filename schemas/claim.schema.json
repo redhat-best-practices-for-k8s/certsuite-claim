@@ -99,6 +99,22 @@
             "tnf": {
               "type": "string",
               "description": "The test-network-function (tnf) release version."
+            },
+            "tnfGitCommit": {
+              "type": "string",
+              "description": "The test-network-function (tnf) Git Commit."
+            },
+            "ocp": {
+              "type": "string",
+              "description": "OCP cluster release version."
+            },
+            "k8s": {
+              "type": "string",
+              "description": "The Kubernetes release version."
+            },
+            "ocClient": {
+              "type": "string",
+              "description": "The oc client release version."
             }
           },
           "additionalProperties": false,
