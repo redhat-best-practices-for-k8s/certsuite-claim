@@ -95,7 +95,7 @@
                             "minikube.k8s.io/commit": "2c82918e2347188e21c4e44c8056fc80408bce10",
                             "minikube.k8s.io/name": "minikube",
                             "minikube.k8s.io/updated_at": "2020_12_17T14_08_15_0700",
-                            "minikube.k8s.io/version": "v1.14.2",
+                            "minikube.k8s.io/version": "v1.16.8",
                             "node-role.kubernetes.io/master": "",
                             "role": "worker"
                         },
