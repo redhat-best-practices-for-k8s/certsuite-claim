@@ -1,6 +1,6 @@
 module github.com/test-network-function/test-network-function-claim
 
-go 1.14
+go 1.16
 
 require (
 	github.com/a-h/generate v0.0.0-20190312091541-e59c34d33fb3

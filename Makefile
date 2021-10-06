@@ -5,9 +5,6 @@
         lint \
         tests
 
-# Export GO111MODULE=on to enable project to be built from within GOPATH/src
-export GO111MODULE=on
-
 all: generate-golang-schema fmt lint build tests
 
 build:
