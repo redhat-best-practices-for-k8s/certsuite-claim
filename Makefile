@@ -18,7 +18,6 @@ fmt:
 	go fmt ./...
 
 lint:
-	golint `go list ./... | grep -v vendor`
 	golangci-lint run
 
 tests:
