@@ -1,9 +1,12 @@
+GO_PACKAGES=$(shell go list ./... | grep -v vendor)
+
 .PHONY: all \
         build \
         fmt \
         generate-golang-schema \
         lint \
-        tests
+        tests \
+        vet
 
 all: generate-golang-schema fmt lint build tests
 
@@ -25,3 +28,6 @@ tests:
 
 validate-example:
 	jsonschema -i schemas/claim.example.json schemas/claim.schema.json
+
+vet:
+	go vet ${GO_PACKAGES}
