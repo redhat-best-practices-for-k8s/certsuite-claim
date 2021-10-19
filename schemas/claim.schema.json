@@ -64,23 +64,23 @@
           "type": "string",
           "description": "Ginkgo writer output during the test run."
         },
-        "Url": {
-          "type": "string",
-          "description": "The Url of the test ID"
+        "testId": {
+          "type": "identifier",
+          "description": "The test identifier"
         }
         
       },
       "additionalProperties": false,
       "required": [
         "testText",
-        "filename",
-        "lineNumber",
+        "failureLocation",
+        "failureLineContent",
         "state",
+        "failureReason",
         "duration",
         "startTime",
-        "stopTime",
-        "stdout",
-        "stderr"
+        "CapturedTestOutput",
+        "testId"
       ]
     }
   },
