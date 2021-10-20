@@ -32,21 +32,17 @@
           "type": "string",
           "description": "The JUnit test text."
         },
-        "isMeasurement": {
-          "type": "boolean",
-          "description": "Whether the test is measuring elapsed time."
-        },
-        "filename": {
+        "failureLocation": {
           "type": "string",
-          "description": "The file containing the Ginkgo test suite."
+          "description": "The Filename and line number where the failure happened"
         },
-        "lineNumber": {
-          "type": "integer",
-          "description": "The line number containing the Ginkgo.It test specification."
+        "failureLineContent": {
+          "type": "string",
+          "description": "The content of the line where the failure happened"
         },
-        "passed": {
-          "type": "boolean",
-          "description": "Whether the Ginkgo.IT test specification passed or failed."
+        "state": {
+          "type": "string",
+          "description": "The test result state: INVALID SPEC STATE, pending,skipped,passed,failed,aborted,panicked,interrupted"
         },
         "failureReason": {
           "type": "string",
@@ -55,16 +51,36 @@
         "duration": {
           "type": "integer",
           "description": "The duration of the test in nanoseconds."
+        },
+        "startTime": {
+          "type": "string",
+          "description": "The start time of the test."
+        },
+        "endTime": {
+          "type": "string",
+          "description": "The end time of the test."
+        },
+        "CapturedTestOutput": {
+          "type": "string",
+          "description": "Ginkgo writer output during the test run."
+        },
+        "testID": {
+          "description": "The test identifier",
+          "$ref": "#/definitions/identifier"       
         }
+        
       },
       "additionalProperties": false,
       "required": [
         "testText",
-        "isMeasurement",
-        "filename",
-        "lineNumber",
-        "passed",
-        "duration"
+        "failureLocation",
+        "failureLineContent",
+        "state",
+        "failureReason",
+        "duration",
+        "startTime",
+        "CapturedTestOutput",
+        "testId"
       ]
     }
   },
