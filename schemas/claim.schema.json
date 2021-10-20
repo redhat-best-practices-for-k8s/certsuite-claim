@@ -64,9 +64,9 @@
           "type": "string",
           "description": "Ginkgo writer output during the test run."
         },
-        "testId": {
-          "type": "identifier",
-          "description": "The test identifier"
+        "testID": {
+          "description": "The test identifier",
+          "$ref": "#/definitions/identifier"       
         }
         
       },
