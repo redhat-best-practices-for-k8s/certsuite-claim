@@ -32,7 +32,7 @@ At a minimum, the following dependencies must be installed to work with the GoLa
 
 Dependency|Minimum Version
 ---|---
-[GoLang](https://golang.org/dl/)|1.16
+[GoLang](https://golang.org/dl/)|1.17
 [golangci-lint](https://golangci-lint.run/usage/install/)|1.42.1
 
 ## Modifying the claim schema
