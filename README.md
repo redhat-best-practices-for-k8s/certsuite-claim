@@ -33,7 +33,7 @@ At a minimum, the following dependencies must be installed to work with the GoLa
 Dependency|Minimum Version
 ---|---
 [GoLang](https://golang.org/dl/)|1.17
-[golangci-lint](https://golangci-lint.run/usage/install/)|1.42.1
+[golangci-lint](https://golangci-lint.run/usage/install/)|1.43.0
 
 ## Modifying the claim schema
 
@@ -117,7 +117,7 @@ For a successful validation of the input claim, one should expect no output and 
 > 
 ```
 
-If the claim does not adhere to the schema, `jsconschema` outputs an appropriate error message describing the issue.
+If the claim does not adhere to the schema, `jsonschema` outputs an appropriate error message describing the issue.
 
 #### Running the validation utility against the example claim
 

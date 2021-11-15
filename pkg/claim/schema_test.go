@@ -15,7 +15,7 @@ package claim_test
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"os"
 	"path"
 	"testing"
 
@@ -63,7 +63,7 @@ func getTestFile(testCaseName string) string {
 
 func getTestFileContents(testCaseName string) ([]byte, error) {
 	testFilePath := getTestFile(testCaseName)
-	return ioutil.ReadFile(testFilePath)
+	return os.ReadFile(testFilePath)
 }
 
 func TestRoot_MarshalJSON(t *testing.T) {

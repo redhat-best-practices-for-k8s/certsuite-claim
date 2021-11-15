@@ -15,7 +15,6 @@ package main
 import (
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 	"path"
 	"time"
@@ -44,7 +43,7 @@ var (
 )
 
 func readCopyrightNoticeFile() ([]byte, error) {
-	return ioutil.ReadFile(copyrightNoticeFile)
+	return os.ReadFile(copyrightNoticeFile)
 }
 
 func prependCopyrightNotice(w io.Writer, contents []byte) error {
