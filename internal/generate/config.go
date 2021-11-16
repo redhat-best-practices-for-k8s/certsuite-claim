@@ -14,7 +14,7 @@ package generate
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"os"
 	"strings"
 	"unicode"
 )
@@ -43,7 +43,7 @@ func GetOverrideConfig(overrideConfigFile string) (*OverrideConfig, error) {
 		overrideConfigFile = defaultOverrideConfigFile
 	}
 
-	contents, err := ioutil.ReadFile(overrideConfigFile)
+	contents, err := os.ReadFile(overrideConfigFile)
 	if err != nil {
 		return nil, err
 	}
