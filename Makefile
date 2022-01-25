@@ -6,6 +6,7 @@ GO_PACKAGES=$(shell go list ./... | grep -v vendor)
         generate-golang-schema \
         lint \
         tests \
+        coverage-html \
         vet
 
 all: generate-golang-schema fmt lint build tests
@@ -25,6 +26,9 @@ lint:
 
 tests:
 	go test -coverprofile=cover.out ./...
+
+coverage-html: tests
+	go tool cover -html cover.out
 
 validate-example:
 	jsonschema -i schemas/claim.example.json schemas/claim.schema.json
