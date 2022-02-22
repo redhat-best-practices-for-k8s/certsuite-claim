@@ -22,7 +22,7 @@ fmt:
 	go fmt ./...
 
 lint:
-	golangci-lint run
+	golangci-lint run --timeout 5m0s
 
 tests:
 	go test -coverprofile=cover.out ./...
