@@ -15,8 +15,9 @@ package generate
 import (
 	"encoding/json"
 	"os"
-	"strings"
-	"unicode"
+
+	"golang.org/x/text/cases"
+	"golang.org/x/text/language"
 )
 
 const (
@@ -53,13 +54,8 @@ func GetOverrideConfig(overrideConfigFile string) (*OverrideConfig, error) {
 
 	// Makes sure the first character is upper case, as this is how the generator handles properties.
 	for _, overrideProperty := range overrideConfig.Properties {
-		i := 0
 		for _, pathElement := range overrideProperty.Path {
-			runes := []rune(pathElement)
-			if unicode.IsLower(runes[0]) {
-				overrideProperty.Path[i] = strings.Title(pathElement)
-			}
-			i++
+			overrideProperty.Path = append(overrideProperty.Path, cases.Title(language.Und, cases.NoLower).String(pathElement))
 		}
 	}
 
