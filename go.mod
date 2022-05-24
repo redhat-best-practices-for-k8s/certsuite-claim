@@ -3,8 +3,9 @@ module github.com/test-network-function/test-network-function-claim
 go 1.18
 
 require (
-	github.com/a-h/generate v0.0.0-20190312091541-e59c34d33fb3
+	github.com/a-h/generate v0.0.0-20220105161013-96c14dfdfb60
 	github.com/stretchr/testify v1.8.0
+	golang.org/x/text v0.3.7
 )
 
 require (
