@@ -16,6 +16,10 @@
         "version": {
           "type": "string",
           "description": "version stores the semantic version of the test."
+        },
+        "tags": {
+          "type": "array",
+          "description": "tags stores the scenarios the for the test."
         }
       },
       "additionalProperties": false,
