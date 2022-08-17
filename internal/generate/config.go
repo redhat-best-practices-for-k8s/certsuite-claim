@@ -57,6 +57,7 @@ func GetOverrideConfig(overrideConfigFile string) (*OverrideConfig, error) {
 		for _, pathElement := range overrideProperty.Path {
 			runes := []rune(pathElement)
 			if unicode.IsLower(runes[0]) {
+				//nolint:staticcheck
 				overrideProperty.Path[i] = strings.Title(pathElement)
 			}
 			i++
