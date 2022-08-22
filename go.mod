@@ -1,4 +1,4 @@
-module github.com/test-network-function/test-network-function-claim
+module github.com/jmontesi/test-network-function-claim
 
 go 1.18
 

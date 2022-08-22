@@ -9,6 +9,10 @@
       "type": "object",
       "description": "identifier is a per testcase unique identifier.",
       "properties": {
+        "tags": {
+          "type": "string",
+          "description": "tags stores the different tags applied to a test."
+        },
         "url": {
           "type": "string",
           "description": "url stores the unique url for a test."
