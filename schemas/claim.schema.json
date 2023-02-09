@@ -16,11 +16,16 @@
         "id": {
           "type": "string",
           "description": "id stores a unique id for the testcase."
+        },
+        "suite": {
+          "type": "string",
+          "description": "suite stores the test suite name for the testcase."
         }
       },
       "additionalProperties": false,
       "required": [
-        "id"
+        "id",
+        "suite"
       ]
     },
     "result": {
