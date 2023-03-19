@@ -16,6 +16,21 @@ import (
 	"strings"
 )
 
+/*
+{
+	"ForTelco": "Mandatory",
+	"FarEdge" : "Optional",
+	"ForNonTelco": "Optional",
+	"ForVZ": "Mandatory"
+   }*/
+// struct for calssification
+type CatagoryClassification struct {
+	FarEdge   string
+	Telco     string
+	NoneTelco string
+	Extended  string
+}
+
 // TestCaseDescription describes a JUnit test case.
 type TestCaseDescription struct {
 	// Identifier is the unique test identifier.
@@ -41,13 +56,15 @@ type TestCaseDescription struct {
 
 	// Whether or not automated tests exist for the test case. Not to be rendered.
 	Qe bool `json:"qe" yaml:"qe"`
+	// calassification for each test case
+	Catagoryclassification CatagoryClassification `json:"Catagoryclassification" yaml:"Catagoryclassification"`
 }
 
 func formTestTags(tags ...string) string {
 	return strings.Join(tags, ",")
 }
 
-func BuildTestCaseDescription(testID, suiteName, description, remediation, testType, exception, reference string, qe bool, tags ...string) (TestCaseDescription, Identifier) {
+func BuildTestCaseDescription(testID, suiteName, description, remediation, testType, exception, reference string, qe bool, catagoryclassification CatagoryClassification, tags ...string) (TestCaseDescription, Identifier) {
 	aID := Identifier{
 		Tags:  formTestTags(tags...),
 		Id:    suiteName + "-" + testID,
@@ -62,5 +79,6 @@ func BuildTestCaseDescription(testID, suiteName, description, remediation, testT
 	aTCDescription.BestPracticeReference = reference
 	aTCDescription.Tags = strings.Join(tags, ",")
 	aTCDescription.Qe = qe
+	aTCDescription.Catagoryclassification = catagoryclassification
 	return aTCDescription, aID
 }
