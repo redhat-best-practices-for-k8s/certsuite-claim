@@ -27,7 +27,7 @@ import (
 type CatagoryClassification struct {
 	FarEdge   string
 	Telco     string
-	NoneTelco string
+	NonTelco string
 	Extended  string
 }
 
