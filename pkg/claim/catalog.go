@@ -23,7 +23,7 @@ import (
 	"ForNonTelco": "Optional",
 	"ForVZ": "Mandatory"
    }*/
-// struct for calssification
+// struct for classification
 type CategoryClassification struct {
 	FarEdge   string
 	Telco     string
