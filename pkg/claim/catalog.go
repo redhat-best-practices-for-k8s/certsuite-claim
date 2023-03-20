@@ -24,7 +24,7 @@ import (
 	"ForVZ": "Mandatory"
    }*/
 // struct for calssification
-type CatagoryClassification struct {
+type CategoryClassification struct {
 	FarEdge   string
 	Telco     string
 	NonTelco string
