@@ -25,10 +25,10 @@ import (
    }*/
 // struct for classification
 type CategoryClassification struct {
-	FarEdge   string
-	Telco     string
+	FarEdge  string
+	Telco    string
 	NonTelco string
-	Extended  string
+	Extended string
 }
 
 // TestCaseDescription describes a JUnit test case.
@@ -64,7 +64,7 @@ func formTestTags(tags ...string) string {
 	return strings.Join(tags, ",")
 }
 
-func BuildTestCaseDescription(testID, suiteName, description, remediation, testType, exception, reference string, qe bool, catagoryclassification CatagoryClassification, tags ...string) (TestCaseDescription, Identifier) {
+func BuildTestCaseDescription(testID, suiteName, description, remediation, testType, exception, reference string, qe bool, catagoryclassification CategoryClassification, tags ...string) (TestCaseDescription, Identifier) {
 	aID := Identifier{
 		Tags:  formTestTags(tags...),
 		Id:    suiteName + "-" + testID,
@@ -79,6 +79,6 @@ func BuildTestCaseDescription(testID, suiteName, description, remediation, testT
 	aTCDescription.BestPracticeReference = reference
 	aTCDescription.Tags = strings.Join(tags, ",")
 	aTCDescription.Qe = qe
-	aTCDescription.Catagoryclassification = catagoryclassification
+	aTCDescription.Categoryclassification = catagoryclassification
 	return aTCDescription, aID
 }
