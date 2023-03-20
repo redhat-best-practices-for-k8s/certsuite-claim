@@ -43,7 +43,7 @@ type TestCaseDescription struct {
 	Qe bool `json:"qe" yaml:"qe"`
 	// classification for each test case
 	CategoryClassification map[string]string `json:"categoryclassification" yaml:"categoryclassification"`
-	/*
+	/* an example to how it CategoryClassification would be
 	   {
 	   	"ForTelco": "Mandatory",
 	   	"FarEdge" : "Optional",
