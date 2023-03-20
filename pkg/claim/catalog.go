@@ -16,21 +16,6 @@ import (
 	"strings"
 )
 
-/*
-{
-	"ForTelco": "Mandatory",
-	"FarEdge" : "Optional",
-	"ForNonTelco": "Optional",
-	"ForVZ": "Mandatory"
-   }*/
-// struct for classification
-type CategoryClassification struct {
-	FarEdge  string
-	Telco    string
-	NonTelco string
-	Extended string
-}
-
 // TestCaseDescription describes a JUnit test case.
 type TestCaseDescription struct {
 	// Identifier is the unique test identifier.
@@ -57,14 +42,21 @@ type TestCaseDescription struct {
 	// Whether or not automated tests exist for the test case. Not to be rendered.
 	Qe bool `json:"qe" yaml:"qe"`
 	// classification for each test case
-	Categoryclassification CategoryClassification `json:"Categoryclassification" yaml:"Categoryclassification"`
+	CategoryClassification map[string]string `json:"categoryclassification" yaml:"categoryclassification"`
+	/*
+	   {
+	   	"ForTelco": "Mandatory",
+	   	"FarEdge" : "Optional",
+	   	"ForNonTelco": "Optional",
+	   	"ForVZ": "Mandatory"
+	      }*/
 }
 
 func formTestTags(tags ...string) string {
 	return strings.Join(tags, ",")
 }
 
-func BuildTestCaseDescription(testID, suiteName, description, remediation, testType, exception, reference string, qe bool, categoryclassification CategoryClassification, tags ...string) (TestCaseDescription, Identifier) {
+func BuildTestCaseDescription(testID, suiteName, description, remediation, testType, exception, reference string, qe bool, categoryclassification map[string]string, tags ...string) (TestCaseDescription, Identifier) {
 	aID := Identifier{
 		Tags:  formTestTags(tags...),
 		Id:    suiteName + "-" + testID,
@@ -79,6 +71,6 @@ func BuildTestCaseDescription(testID, suiteName, description, remediation, testT
 	aTCDescription.BestPracticeReference = reference
 	aTCDescription.Tags = strings.Join(tags, ",")
 	aTCDescription.Qe = qe
-	aTCDescription.Categoryclassification = categoryclassification
+	aTCDescription.CategoryClassification = categoryclassification
 	return aTCDescription, aID
 }
