@@ -135,11 +135,16 @@
             "ocClient": {
               "type": "string",
               "description": "The oc client release version."
+            },
+            "claimFormat": {
+              "type": "string",
+              "description": "The claim file format version."
             }
           },
           "additionalProperties": false,
           "required": [
-            "tnf"
+            "tnf",
+            "claimFormat"
           ]
         },
         "configurations": {

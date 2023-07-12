@@ -212,7 +212,8 @@
       }
     },
     "versions": {
-      "tnf": "v0.0.3"
+      "tnf": "v0.0.3",
+      "claimFormat":"v0.0.1"
     },
     "results": false
   }
