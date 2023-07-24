@@ -32,10 +32,6 @@
       "$id": "#result",
       "description": "result is the result of running a testcase.",
       "properties": {
-        "testText": {
-          "type": "string",
-          "description": "The JUnit test text."
-        },
         "failureLocation": {
           "type": "string",
           "description": "The Filename and line number where the failure happened"
@@ -64,27 +60,93 @@
           "type": "string",
           "description": "The end time of the test."
         },
-        "CapturedTestOutput": {
+        "capturedTestOutput": {
           "type": "string",
           "description": "Ginkgo writer output during the test run."
         },
         "testID": {
           "description": "The test identifier",
-          "$ref": "#/definitions/identifier"       
+          "$ref": "#/definitions/identifier"
+        },
+        "categoryClassification": {
+          "description": "Category classification for the test",
+          "$ref": "#/definitions/categoryClassification"
+        },
+        "catalogInfo": {
+          "description": "Test detailed information from catalog",
+          "$ref": "#/definitions/catalogInfo"
         }
-        
       },
       "additionalProperties": false,
       "required": [
-        "testText",
         "failureLocation",
         "failureLineContent",
         "state",
         "failureReason",
         "duration",
         "startTime",
-        "CapturedTestOutput",
-        "testId"
+        "capturedTestOutput",
+        "testID",
+        "categoryClassification",
+        "catalogInfo"
+      ]
+    },
+    "categoryClassification": {
+      "$id": "#categoryClassification",
+      "description": "categoryClassification is the classification for a single test case.",
+      "properties": {
+        "Extended": {
+          "type": "string",
+          "description": "indicates whether this test case is mandatory or optional in the Extended scenario"
+        },
+        "FarEdge": {
+          "type": "string",
+          "description": "indicates whether this test case is mandatory or optional in the FarEdge scenario"
+        },
+        "NonTelco": {
+          "type": "string",
+          "description": "indicates whether this test case is mandatory or optional in the NonTelco scenario"
+        },
+        "Telco": {
+          "type": "string",
+          "description": "indicates whether this test case is mandatory or optional in the Telco scenario"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "extended",
+        "farEdge",
+        "nonTelco",
+        "telco"
+      ]
+    },
+    "catalogInfo": {
+      "$id": "#catalogInfo",
+      "description": "test specific information from the catalog",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "The test description."
+        },
+        "remediation": {
+          "type": "string",
+          "description": "steps required to fix a failing test case"
+        },
+        "exceptionProcess": {
+          "type": "string",
+          "description": "Indicates the exception process if defined"
+        },
+        "bestPracticeReference": {
+          "type": "string",
+          "description": "Link to the best practice document supporting this test case"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "description",
+        "remediation",
+        "exceptionProcess",
+        "bestPracticeReference"
       ]
     }
   },
