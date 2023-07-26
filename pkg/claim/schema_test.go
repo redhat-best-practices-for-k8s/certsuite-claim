@@ -159,7 +159,7 @@ func TestResult_UnmarshalJSON(t *testing.T) { //nolint:funlen
 				CatalogInfo: &CatalogInfo{
 					BestPracticeReference: "https://test-network-function.github.io/cnf-best-practices/#cnf-best-practices-image-standards",
 					//nolint:lll
-					Description:      "Ensures that the Container Base Image is not altered post-startup. This test is a heuristic, and ensures that there are no changes to the following directories: 1) /var/lib/rpm 2) /var/lib/dpkg 3) /bin 4) /sbin 5) /lib 6) /lib64 7) /usr/bin 8) /usr/sbin 9) /usr/lib 10) /usr/lib64",
+					Text:             "Ensures that the Container Base Image is not altered post-startup. This test is a heuristic, and ensures that there are no changes to the following directories: 1) /var/lib/rpm 2) /var/lib/dpkg 3) /bin 4) /sbin 5) /lib 6) /lib64 7) /usr/bin 8) /usr/sbin 9) /usr/lib 10) /usr/lib64",
 					ExceptionProcess: "No exceptions",
 					//nolint:lll
 					Remediation: "Ensure that Container applications do not modify the Container Base Image. In particular, ensure that the following directories are not modified: 1) /var/lib/rpm 2) /var/lib/dpkg 3) /bin 4) /sbin 5) /lib 6) /lib64 7) /usr/bin 8) /usr/sbin 9) /usr/lib 10) /usr/lib64 Ensure that all required binaries are built directly into the container image, and are not installed post startup.",
@@ -189,7 +189,7 @@ func TestResult_UnmarshalJSON(t *testing.T) { //nolint:funlen
 					"capturedTestOutput": "{\"CompliantObjectsOut\":[{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"tnf\",\"test-0\",\"test\"]},{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"tnf\",\"test-1\",\"test\"]},{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"tnf\",\"test-d78fbf8d6-jxgl2\",\"test\"]},{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"tnf\",\"test-d78fbf8d6-n4jlv\",\"test\"]}],\"NonCompliantObjectsOut\":null}\n",
 					"catalogInfo": {
 					  "bestPracticeReference": "https://test-network-function.github.io/cnf-best-practices/#cnf-best-practices-image-standards",
-					  "description": "Ensures that the Container Base Image is not altered post-startup. This test is a heuristic, and ensures that there are no changes to the following directories: 1) /var/lib/rpm 2) /var/lib/dpkg 3) /bin 4) /sbin 5) /lib 6) /lib64 7) /usr/bin 8) /usr/sbin 9) /usr/lib 10) /usr/lib64",
+					  "text": "Ensures that the Container Base Image is not altered post-startup. This test is a heuristic, and ensures that there are no changes to the following directories: 1) /var/lib/rpm 2) /var/lib/dpkg 3) /bin 4) /sbin 5) /lib 6) /lib64 7) /usr/bin 8) /usr/sbin 9) /usr/lib 10) /usr/lib64",
 					  "exceptionProcess": "No exceptions",
 					  "remediation": "Ensure that Container applications do not modify the Container Base Image. In particular, ensure that the following directories are not modified: 1) /var/lib/rpm 2) /var/lib/dpkg 3) /bin 4) /sbin 5) /lib 6) /lib64 7) /usr/bin 8) /usr/sbin 9) /usr/lib 10) /usr/lib64 Ensure that all required binaries are built directly into the container image, and are not installed post startup."
 					},
