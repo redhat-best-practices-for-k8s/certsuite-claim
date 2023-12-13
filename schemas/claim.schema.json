@@ -44,9 +44,13 @@
           "type": "string",
           "description": "The test result state: INVALID SPEC STATE, pending,skipped,passed,failed,aborted,panicked,interrupted"
         },
-        "failureReason": {
+        "skipReason": {
           "type": "string",
-          "description": "Describes the test failure in detail."
+          "description": "Describes the reasons for not running a test (skipped, aborted, panicked, interrupted)"
+        },
+        "checkDetails": {
+          "type": "string",
+          "description": "Described the reasons for passing or failing a test"
         },
         "duration": {
           "type": "integer",
@@ -82,7 +86,8 @@
         "failureLocation",
         "failureLineContent",
         "state",
-        "failureReason",
+        "skipReason",
+        "checkDetails",
         "duration",
         "startTime",
         "capturedTestOutput",

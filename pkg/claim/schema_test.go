@@ -101,7 +101,8 @@ func TestResult_MarshalJSON(t *testing.T) {
 		EndTime                string
 		FailureLineContent     string
 		FailureLocation        string
-		FailureReason          string
+		SkipReason             string
+		CheckDetails           string
 		StartTime              string
 		State                  string
 		TestID                 *Identifier
@@ -124,7 +125,8 @@ func TestResult_MarshalJSON(t *testing.T) {
 				EndTime:                tt.fields.EndTime,
 				FailureLineContent:     tt.fields.FailureLineContent,
 				FailureLocation:        tt.fields.FailureLocation,
-				FailureReason:          tt.fields.FailureReason,
+				SkipReason:             tt.fields.SkipReason,
+				CheckDetails:           tt.fields.CheckDetails,
 				StartTime:              tt.fields.StartTime,
 				State:                  tt.fields.State,
 				TestID:                 tt.fields.TestID,
@@ -174,7 +176,7 @@ func TestResult_UnmarshalJSON(t *testing.T) { //nolint:funlen
 				EndTime:            "2023-07-25 09:10:25.557493221 -0500 CDT m=+51.038323513",
 				FailureLineContent: "",
 				FailureLocation:    ":0",
-				FailureReason:      "",
+				SkipReason:         "",
 				StartTime:          "2023-07-25 09:10:17.812172748 -0500 CDT m=+43.293003040",
 				State:              "passed",
 				TestID: &Identifier{
@@ -203,7 +205,8 @@ func TestResult_UnmarshalJSON(t *testing.T) { //nolint:funlen
 					"endTime": "2023-07-25 09:10:25.557493221 -0500 CDT m=+51.038323513",
 					"failureLineContent": "",
 					"failureLocation": ":0",
-					"failureReason": "",
+					"skipReason": "",
+					"checkDetails": "",
 					"startTime": "2023-07-25 09:10:17.812172748 -0500 CDT m=+43.293003040",
 					"state": "passed",
 					"testID": {
