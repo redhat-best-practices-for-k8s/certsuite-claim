@@ -35,9 +35,6 @@ var testCases = map[string]*testCase{
 		expectedStartTime:         "1970-01-01T10:05:08+01:00",
 		expectedEndTime:           "1970-01-01T10:05:08+01:00",
 	},
-	"claim-invalid-junit-payload": {
-		expectedMarshallJSONError: true,
-	},
 	"claim-invalid-additional-property": {
 		expectedMarshallJSONError: true,
 	},

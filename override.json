@@ -6,13 +6,8 @@
         "nodes"
       ],
       "overrideType": "map[string]interface{}"
-    }, {
-      "path": [
-        "claim",
-        "rawResults"
-      ],
-      "overrideType": "map[string]interface{}"
-    }, {
+    },
+    {
       "path": [
         "claim",
         "results"
