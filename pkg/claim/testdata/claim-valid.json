@@ -173,44 +173,6 @@
         }
       ]
     },
-    "rawResults": {
-      "cnf-certification-tests_junit": {
-        "testsuite": {
-          "-errors": "0",
-          "-failures": "0",
-          "-name": "CNF Certification Test Suite",
-          "-tests": "5",
-          "-time": "8.376",
-          "testcase": [
-            {
-              "-classname": "CNF Certification Test Suite",
-              "-name": "generic Both Pods are on the Default network when a Ping is issued from test(test) to partner(partner) 10.130.4.64 partner(partner) should reply",
-              "-time": "4.132041197"
-            },
-            {
-              "-classname": "CNF Certification Test Suite",
-              "-name": "generic Both Pods are on the Default network when a Ping is issued from partner(partner) to test(test) 10.128.8.3 test(test) should reply",
-              "-time": "4.102927471"
-            },
-            {
-              "-classname": "CNF Certification Test Suite",
-              "-name": "generic when test(test) is checked for Red Hat version Should report a proper Red Hat version",
-              "-time": "0.002270972"
-            },
-            {
-              "-classname": "CNF Certification Test Suite",
-              "-name": "generic when partner(partner) is checked for Red Hat version Should report a proper Red Hat version",
-              "-time": "0.002174817"
-            },
-            {
-              "-classname": "CNF Certification Test Suite",
-              "-name": "diagnostic when a cluster is set up and installed with OpenShift should report all available nodeSummary",
-              "-time": "0.133763681"
-            }
-          ]
-        }
-      }
-    },
     "versions": {
       "tnf": "v0.0.3",
       "claimFormat":"v0.0.1"

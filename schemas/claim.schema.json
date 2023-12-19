@@ -225,10 +225,6 @@
           "type": "object",
           "description": "An OpenShift cluster is composed of an arbitrary number of Nodes used for platform and application services.  Since a claim must be reproducible, a variety of per-Node information must be collected and stored in the claim.  Node names are unique within a given OpenShift cluster."
         },
-        "rawResults": {
-          "type": "object",
-          "description": "The test-network-function test results.  Results are a JSON representation of the JUnit output."
-        },
         "results": {
           "type": "object",
           "description": "The results for each unique test case.",
@@ -242,8 +238,7 @@
         "metadata",
         "versions",
         "configurations",
-        "nodes",
-        "rawResults"
+        "nodes"
       ]
     }
   },
