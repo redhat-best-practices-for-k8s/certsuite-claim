@@ -30,7 +30,7 @@ linters-settings:
     local-prefixes: github.com/golangci/golangci-lint
   golint:
     min-confidence: 0
-  gomnd:
+  mnd:
     settings:
       mnd:
         # don't include the "operation" and "assign"
@@ -70,7 +70,7 @@ linters:
     - gocyclo
     - gofmt
     - goimports
-    - gomnd
+    - mnd
     - goprintffuncname
     - gosec
     - gosimple
@@ -112,7 +112,7 @@ issues:
     # Ignore magic numbers and inline strings in tests.
     - path: _test\.go
       linters:
-        - gomnd
+        - mnd
         - goconst
     # Ignore line length for string assignments (don't try and wrap regex definitions)
     - linters:
@@ -128,6 +128,6 @@ issues:
 # golangci.com configuration
 # https://github.com/golangci/golangci/wiki/Configuration
 service:
-  golangci-lint-version: 1.56.x # use the fixed version to not introduce new linters unexpectedly
+  golangci-lint-version: 1.58.x # use the fixed version to not introduce new linters unexpectedly
   prepare:
     - echo "here I can run custom commands, but no preparation needed for this repo"
