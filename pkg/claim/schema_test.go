@@ -35,23 +35,18 @@ var testCases = map[string]*testCase{
 		expectedStartTime:         "1970-01-01T10:05:08+01:00",
 		expectedEndTime:           "1970-01-01T10:05:08+01:00",
 	},
-	// "claim-invalid-additional-property": {
-	// 	expectedMarshallJSONError: true,
-	// },
-	// "claim-invalid-bool-results": {
-	// 	expectedMarshallJSONError: true,
-	// },
-	// // A little confusing;  since we remap the "results" field, this interface{} value is not actually checked.
-	// // This is a limitation of the JSON Schema go client generator, and is perfectly fine for this context.
-	// "claim-invalid-non-result-result": {
-	// 	expectedMarshallJSONError: false,
-	// },
-	// "invalid-json": {
-	// 	expectedMarshallJSONError: true,
-	// },
-	// "missing-claim": {
-	// 	expectedMarshallJSONError: true,
-	// },
+	"claim-invalid-additional-property": {
+		expectedMarshallJSONError: true,
+	},
+	"claim-invalid-bool-results": {
+		expectedMarshallJSONError: true,
+	},
+	"invalid-json": {
+		expectedMarshallJSONError: true,
+	},
+	"missing-claim": {
+		expectedMarshallJSONError: true,
+	},
 }
 
 func getTestFile(testCaseName string) string {
@@ -75,8 +70,7 @@ func TestRoot_MarshalJSON(t *testing.T) {
 		root := &Root{}
 		err = json.Unmarshal(contents, root)
 		fmt.Println(testCaseName)
-		assert.Nil(t, err)
-		// assert.Equal(t, testCaseDefinition.expectedMarshallJSONError, err != nil)
+		assert.Equal(t, testCaseDefinition.expectedMarshallJSONError, err != nil)
 
 		if testCaseDefinition.expectedMarshallJSONError == false {
 			// start time assertion
