@@ -12,7 +12,7 @@
         "claim",
         "results"
       ],
-      "overrideType": "map[string]interface{}"
+      "overrideType": "map[string]Result"
     }
   ]
 }
