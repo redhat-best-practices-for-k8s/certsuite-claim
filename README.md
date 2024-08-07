@@ -1,13 +1,13 @@
-# test-network-function-claim ![build](https://github.com/test-network-function/test-network-function-claim/actions/workflows/merge.yml/badge.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/test-network-function/test-network-function-claim)](https://goreportcard.com/report/github.com/test-network-function/test-network-function-claim)
+# certsuite-claim ![build](https://github.com/redhat-best-practices-for-k8s/certsuite-claim/actions/workflows/merge.yml/badge.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/redhat-best-practices-for-k8s/certsuite-claim)](https://goreportcard.com/report/github.com/redhat-best-practices-for-k8s/certsuite-claim)
 
-`test-network-function-claim` provides the definition for a
-[test-network-function](https://github.com/test-network-function/test-network-function) claim.
+`certsuite-claim` provides the definition for a
+[redhat-best-practices-for-k8s](https://github.com/redhat-best-practices-for-k8s/redhat-best-practices-for-k8s) claim.
 
 A claim contains:
-* The `test-network-function` version used for testing. *Note*:  The claim keeps track of only the
-`test-network-function` version, and not individual test versions.  For the current offering, the tests included in a
-`test-network-function` release are immutable, and the source for all included tests is public.  Any changes to provided
-tests require a subsequent `test-network-function` release.
+* The `redhat-best-practices-for-k8s` version used for testing. *Note*:  The claim keeps track of only the
+`redhat-best-practices-for-k8s` version, and not individual test versions.  For the current offering, the tests included in a
+`redhat-best-practices-for-k8s` release are immutable, and the source for all included tests is public.  Any changes to provided
+tests require a subsequent `redhat-best-practices-for-k8s` release.
 * A start time for the claim evaluation.
 * A description of the Hardware System(s) Under Test
 * All test configurations used by tests.
@@ -16,7 +16,7 @@ tests require a subsequent `test-network-function` release.
 
 `schemas/claim.schema.json` defines the claim schema using
 [JSON Schema Draft-07](https://json-schema.org/draft-07/json-schema-release-notes.html).  JSON Schema serves as the
-only definition language for a `test-network-function` claim.  In other words, even though other language bindings are
+only definition language for a `redhat-best-practices-for-k8s` claim.  In other words, even though other language bindings are
 possible (and some provided), the ultimate claim definition is `claim.schema.json`.  In the unfortunate event of
 ambiguity between `claim.schema.json` and a particular language binding, the former rules.
 

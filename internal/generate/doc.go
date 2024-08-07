@@ -11,7 +11,7 @@
 // Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 /*
-Package generate is responsible for generating GoLang representations of the test-network-function claim defined by
+Package generate is responsible for generating GoLang representations of the redhat-best-practices-for-k8s claim defined by
 `claim-schema.json`.  A modified version of `https://github.com/a-h/generate` is utilized to emit GoLang structs
 and their corresponding `MarshallJSON` and `UnmarshallJSON` interface implementations.  A modified version was
 utilized since the original version (`https://github.com/a-h/generate`) blindly remaps JSON "object" types to GoLang

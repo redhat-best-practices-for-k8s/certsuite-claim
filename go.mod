@@ -1,4 +1,4 @@
-module github.com/test-network-function/test-network-function-claim
+module github.com/redhat-best-practices-for-k8s/certsuite-claim
 
 go 1.22.5
 
