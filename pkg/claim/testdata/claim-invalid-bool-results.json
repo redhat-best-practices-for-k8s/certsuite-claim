@@ -159,7 +159,7 @@
     },
     "results": {
       "identifier": {
-        "url": "https://test-network-function.com/tnf/test",
+        "url": "https://redhat-best-practices-for-k8s.com/tnf/test",
         "version": "v1.0.0"
       },
       "results": [

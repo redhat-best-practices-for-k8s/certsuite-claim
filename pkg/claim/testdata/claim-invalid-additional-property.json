@@ -11,7 +11,7 @@
     },
     "configurations": {},
     "results": {
-      "{\"url\":\"https://test-network-function.com/tnf/test\",{\"version\":\"v1.0.0\"}": [
+      "{\"url\":\"https://redhat-best-practices-for-k8s.com/tnf/test\",{\"version\":\"v1.0.0\"}": [
         {
           "testText": "someText",
           "isMeasurement": false,

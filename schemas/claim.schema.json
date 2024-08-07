@@ -1,8 +1,8 @@
 {
-  "$id": "http://test-network-function.com/schemas/claim.schema.json",
+  "$id": "http://redhat-best-practices-for-k8s.com/schemas/claim.schema.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "version": "v1.0.0",
-  "description": "A test-network-function claim is an attestation of the tests performed, the results and the various configurations.  Since a claim must be reproducible, it also includes an overview of the systems under test and their physical configurations.",
+  "description": "A redhat-best-practices-for-k8s claim is an attestation of the tests performed, the results and the various configurations.  Since a claim must be reproducible, it also includes an overview of the systems under test and their physical configurations.",
   "definitions": {
     "identifier": {
       "$id": "#identifier",
@@ -166,12 +166,12 @@
             "startTime": {
               "type": "string",
               "format": "date-time",
-              "description": "The UTC start time of a claim evaluation.  This is recorded when the test-network-function test suite is invoked."
+              "description": "The UTC start time of a claim evaluation.  This is recorded when the redhat-best-practices-for-k8s test suite is invoked."
             },
             "endTime": {
               "type": "string",
               "format": "date-time",
-              "description": "The UTC end time of a claim evaluation.  This is recorded when the test-network-function test suite completes."
+              "description": "The UTC end time of a claim evaluation.  This is recorded when the redhat-best-practices-for-k8s test suite completes."
             }
           },
           "additionalProperties": false,
@@ -185,11 +185,11 @@
           "properties": {
             "tnf": {
               "type": "string",
-              "description": "The test-network-function (tnf) release version."
+              "description": "The redhat-best-practices-for-k8s (tnf) release version."
             },
             "tnfGitCommit": {
               "type": "string",
-              "description": "The test-network-function (tnf) Git Commit."
+              "description": "The redhat-best-practices-for-k8s (tnf) Git Commit."
             },
             "ocp": {
               "type": "string",
@@ -216,9 +216,9 @@
         },
         "configurations": {
           "type": "object",
-          "description": "Tests within test-network-function often require configuration.  For example, the generic test suite requires listing all CNF containers.  This information is used to derive per-container IP address information, which is then used as input to the connectivity test suite.  Test suites within test-network-function may use multiple configurations, but each with a unique name.",
+          "description": "Tests within redhat-best-practices-for-k8s often require configuration.  For example, the generic test suite requires listing all CNF containers.  This information is used to derive per-container IP address information, which is then used as input to the connectivity test suite.  Test suites within redhat-best-practices-for-k8s may use multiple configurations, but each with a unique name.",
           "additionalProperties": {
-            "description": "Tests within test-network-function often require configuration.  For example, the generic test suite requires listing all CNF containers.  This information is used to derive per-container IP address information, which is then used as input to the connectivity test suite.  Test suites within test-network-function may use multiple configurations, each of which is arbitrary in structure and use case specific."
+            "description": "Tests within redhat-best-practices-for-k8s often require configuration.  For example, the generic test suite requires listing all CNF containers.  This information is used to derive per-container IP address information, which is then used as input to the connectivity test suite.  Test suites within redhat-best-practices-for-k8s may use multiple configurations, each of which is arbitrary in structure and use case specific."
           }
         },
         "nodes": {
