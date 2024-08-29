@@ -149,7 +149,7 @@ func TestResult_UnmarshalJSON(t *testing.T) { //nolint:funlen
 			name: "ok",
 			want: &Result{
 				//nolint:lll
-				CapturedTestOutput: "{\"CompliantObjectsOut\":[{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"tnf\",\"test-0\",\"test\"]},{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"tnf\",\"test-1\",\"test\"]},{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"tnf\",\"test-d78fbf8d6-jxgl2\",\"test\"]},{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"tnf\",\"test-d78fbf8d6-n4jlv\",\"test\"]}],\"NonCompliantObjectsOut\":null}\n",
+				CapturedTestOutput: "{\"CompliantObjectsOut\":[{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"certsuite\",\"test-0\",\"test\"]},{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"certsuite\",\"test-1\",\"test\"]},{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"certsuite\",\"test-d78fbf8d6-jxgl2\",\"test\"]},{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"certsuite\",\"test-d78fbf8d6-n4jlv\",\"test\"]}],\"NonCompliantObjectsOut\":null}\n",
 				CatalogInfo: &CatalogInfo{
 					BestPracticeReference: "https://redhat-best-practices-for-k8s.github.io/cnf-best-practices/#cnf-best-practices-image-standards",
 					//nolint:lll
@@ -180,7 +180,7 @@ func TestResult_UnmarshalJSON(t *testing.T) { //nolint:funlen
 			//nolint:lll
 			args: args{b: []byte(`
 				  {
-					"capturedTestOutput": "{\"CompliantObjectsOut\":[{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"tnf\",\"test-0\",\"test\"]},{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"tnf\",\"test-1\",\"test\"]},{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"tnf\",\"test-d78fbf8d6-jxgl2\",\"test\"]},{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"tnf\",\"test-d78fbf8d6-n4jlv\",\"test\"]}],\"NonCompliantObjectsOut\":null}\n",
+					"capturedTestOutput": "{\"CompliantObjectsOut\":[{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"certsuite\",\"test-0\",\"test\"]},{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"certsuite\",\"test-1\",\"test\"]},{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"certsuite\",\"test-d78fbf8d6-jxgl2\",\"test\"]},{\"ObjectType\":\"Container\",\"ObjectFieldsKeys\":[\"Reason For Compliance\",\"Namespace\",\"Pod Name\",\"Container Name\"],\"ObjectFieldsValues\":[\"Container is not modified\",\"certsuite\",\"test-d78fbf8d6-n4jlv\",\"test\"]}],\"NonCompliantObjectsOut\":null}\n",
 					"catalogInfo": {
 					  "bestPracticeReference": "https://redhat-best-practices-for-k8s.github.io/cnf-best-practices/#cnf-best-practices-image-standards",
 					  "description": "Ensures that the Container Base Image is not altered post-startup. This test is a heuristic, and ensures that there are no changes to the following directories: 1) /var/lib/rpm 2) /var/lib/dpkg 3) /bin 4) /sbin 5) /lib 6) /lib64 7) /usr/bin 8) /usr/sbin 9) /usr/lib 10) /usr/lib64",
@@ -206,7 +206,7 @@ func TestResult_UnmarshalJSON(t *testing.T) { //nolint:funlen
 					  "suite": "platform-alteration",
 					  "tags": "common"
 					}
-				  }  
+				  }
 			`)},
 			wantErr: false,
 		},
