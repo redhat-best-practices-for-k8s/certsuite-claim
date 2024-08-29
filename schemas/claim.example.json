@@ -31,7 +31,7 @@
                         "multusIpAddresses": [
                             "10.217.0.8"
                         ],
-                        "namespace": "tnf",
+                        "namespace": "certsuite",
                         "podName": "test"
                     }
                 ],
@@ -48,13 +48,13 @@
                         "multusIpAddresses": [
                             "10.217.0.29"
                         ],
-                        "namespace": "tnf",
+                        "namespace": "certsuite",
                         "podName": "partner"
                     }
                 ],
                 "testOrchestrator": {
                     "containerName": "partner",
-                    "namespace": "tnf",
+                    "namespace": "certsuite",
                     "podName": "partner"
                 }
             },
@@ -500,7 +500,7 @@
                     "isMeasurement": false,
                     "lineNumber": 373,
                     "passed": true,
-                    "testText": "generic Testing pod terminationGracePeriod tnf/test"
+                    "testText": "generic Testing pod terminationGracePeriod certsuite/test"
                 }
             ],
             "{\"Url\":\"http://redhat-best-practices-for-k8s.com/testcases/generic/pod-cluster-role-bindings-best-practices\",\"Version\":\"v1.0.0\"}": [
@@ -511,7 +511,7 @@
                     "isMeasurement": false,
                     "lineNumber": 554,
                     "passed": true,
-                    "testText": "generic when Testing roles and privileges of tnf/test Should not have ClusterRoleBindings"
+                    "testText": "generic when Testing roles and privileges of certsuite/test Should not have ClusterRoleBindings"
                 }
             ],
             "{\"Url\":\"http://redhat-best-practices-for-k8s.com/testcases/generic/pod-deployment-best-practices\",\"Version\":\"v1.0.0\"}": [
@@ -533,7 +533,7 @@
                     "isMeasurement": false,
                     "lineNumber": 389,
                     "passed": true,
-                    "testText": "generic Testing pod nodeSelector tnf/test"
+                    "testText": "generic Testing pod nodeSelector certsuite/test"
                 }
             ],
             "{\"Url\":\"http://redhat-best-practices-for-k8s.com/testcases/generic/pod-role-bindings-best-practices\",\"Version\":\"v1.0.0\"}": [
@@ -544,7 +544,7 @@
                     "isMeasurement": false,
                     "lineNumber": 535,
                     "passed": true,
-                    "testText": "generic when Testing roles and privileges of tnf/test Should not have RoleBinding in other namespaces"
+                    "testText": "generic when Testing roles and privileges of certsuite/test Should not have RoleBinding in other namespaces"
                 }
             ],
             "{\"Url\":\"http://redhat-best-practices-for-k8s.com/testcases/generic/pod-service-account-best-practices\",\"Version\":\"v1.0.0\"}": [
@@ -555,7 +555,7 @@
                     "isMeasurement": false,
                     "lineNumber": 520,
                     "passed": true,
-                    "testText": "generic when Testing roles and privileges of tnf/test Should have a valid ServiceAccount name"
+                    "testText": "generic when Testing roles and privileges of certsuite/test Should have a valid ServiceAccount name"
                 }
             ],
             "{\"Url\":\"http://redhat-best-practices-for-k8s.com/testcases/generic/services-do-not-use-nodeports\",\"Version\":\"v1.0.0\"}": [
@@ -566,7 +566,7 @@
                     "isMeasurement": false,
                     "lineNumber": 574,
                     "passed": true,
-                    "testText": "generic when Testing services in namespace tnf Should not have services of type NodePort"
+                    "testText": "generic when Testing services in namespace certsuite Should not have services of type NodePort"
                 }
             ],
             "{\"Url\":\"http://redhat-best-practices-for-k8s.com/testcases/generic/unaltered-startup-boot-params\",\"Version\":\"v1.0.0\"}": [
@@ -577,12 +577,12 @@
                     "isMeasurement": false,
                     "lineNumber": 500,
                     "passed": false,
-                    "testText": "generic Testing boot params for the pod's node tnf/test"
+                    "testText": "generic Testing boot params for the pod's node certsuite/test"
                 }
             ]
         },
         "versions": {
-            "tnf": "v1.0.6"
+            "certSuite": "v1.0.6"
         }
     }
 }

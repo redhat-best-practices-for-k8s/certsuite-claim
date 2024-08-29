@@ -183,13 +183,13 @@
         "versions": {
           "type": "object",
           "properties": {
-            "tnf": {
+            "certSuite": {
               "type": "string",
-              "description": "The redhat-best-practices-for-k8s (tnf) release version."
+              "description": "The redhat-best-practices-for-k8s (certSuite) release version."
             },
-            "tnfGitCommit": {
+            "certSuiteGitCommit": {
               "type": "string",
-              "description": "The redhat-best-practices-for-k8s (tnf) Git Commit."
+              "description": "The redhat-best-practices-for-k8s (certSuite) Git Commit."
             },
             "ocp": {
               "type": "string",
@@ -210,7 +210,7 @@
           },
           "additionalProperties": false,
           "required": [
-            "tnf",
+            "certSuite",
             "claimFormat"
           ]
         },

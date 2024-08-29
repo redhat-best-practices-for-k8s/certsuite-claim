@@ -1,7 +1,7 @@
 # certsuite-claim ![build](https://github.com/redhat-best-practices-for-k8s/certsuite-claim/actions/workflows/merge.yml/badge.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/redhat-best-practices-for-k8s/certsuite-claim)](https://goreportcard.com/report/github.com/redhat-best-practices-for-k8s/certsuite-claim)
 
 `certsuite-claim` provides the definition for a
-[redhat-best-practices-for-k8s](https://github.com/redhat-best-practices-for-k8s/redhat-best-practices-for-k8s) claim.
+[redhat-best-practices-for-k8s](https://github.com/redhat-best-practices-for-k8s/certsuite) claim.
 
 A claim contains:
 * The `redhat-best-practices-for-k8s` version used for testing. *Note*:  The claim keeps track of only the
