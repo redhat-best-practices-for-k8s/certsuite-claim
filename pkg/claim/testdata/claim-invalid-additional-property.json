@@ -6,12 +6,12 @@
       "endTime": "1970-01-01T10:05:08+01:00"
     },
     "versions": {
-      "tnf": "v0.0.1",
+      "certSuite": "v0.0.1",
       "claimFormat":"v0.0.1"
     },
     "configurations": {},
     "results": {
-      "{\"url\":\"https://redhat-best-practices-for-k8s.com/tnf/test\",{\"version\":\"v1.0.0\"}": [
+      "{\"url\":\"https://redhat-best-practices-for-k8s.com/certsuite/test\",{\"version\":\"v1.0.0\"}": [
         {
           "testText": "someText",
           "isMeasurement": false,
