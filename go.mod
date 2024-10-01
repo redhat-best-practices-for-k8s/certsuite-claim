@@ -1,6 +1,6 @@
 module github.com/redhat-best-practices-for-k8s/certsuite-claim
 
-go 1.23.1
+go 1.23.2
 
 require (
 	github.com/a-h/generate v0.0.0-20220105161013-96c14dfdfb60
