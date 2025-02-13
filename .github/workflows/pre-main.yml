@@ -24,6 +24,9 @@ jobs:
       - name: Run Tests
         run: make generate-golang-schema build tests
 
+      - name: Run make vet
+        run: make vet
+
       - name: Quality Gate - Test coverage shall be above threshold
         env:
           TESTCOVERAGE_THRESHOLD: 40

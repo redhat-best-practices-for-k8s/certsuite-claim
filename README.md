@@ -59,7 +59,7 @@ One should take all effort to ensure changes to the schema are backwards compati
 change is necessary, please make sure to include that information in the commit message.  All breaking schema changes
 require a semantic version major version bump upon release.
 
-Due to the fact that [a-h/generate](https://github.com/a-h/generate) generates the GoLang language binding, some
+Due to the fact that [sebrandon1/generate](https://github.com/sebrandon1/generate) generates the GoLang language binding, some
 generated code is not easily modifiable.  The library will occasionally output un-testable code, so 100% unit test is
 not a requirement.  An example of un-testable code is:
 
@@ -79,7 +79,7 @@ compile-time optimization.
 
 ### Overriding type inferences
 
-[a-h/generate](https://github.com/a-h/generate) is known to output JSON `object` types as GoLang `struct`s.  Although
+[sebrandon1/generate](https://github.com/sebrandon1/generate) is known to output JSON `object` types as GoLang `struct`s.  Although
 this is normally desirable, we occasionally wish to allow arbitrary JSON instead.  In this case, we have no struct
 definition for some facets of our claim, such as "lshw" and "results".  This is due to the fact that others define those
 JSON structures, and we are not in the business of redefinition.  This is a rare case in which we want to allow GoLang
