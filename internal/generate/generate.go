@@ -18,7 +18,7 @@ import (
 	"os"
 	"regexp"
 
-	"github.com/a-h/generate"
+	"github.com/sebrandon1/generate"
 )
 
 const (

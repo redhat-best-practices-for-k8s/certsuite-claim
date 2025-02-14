@@ -12,9 +12,9 @@
 
 /*
 Package generate is responsible for generating GoLang representations of the redhat-best-practices-for-k8s claim defined by
-`claim-schema.json`.  A modified version of `https://github.com/a-h/generate` is utilized to emit GoLang structs
+`claim-schema.json`.  A modified version of `https://github.com/sebrandon1/generate` is utilized to emit GoLang structs
 and their corresponding `MarshallJSON` and `UnmarshallJSON` interface implementations.  A modified version was
-utilized since the original version (`https://github.com/a-h/generate`) blindly remaps JSON "object" types to GoLang
+utilized since the original version (`https://github.com/sebrandon1/generate`) blindly remaps JSON "object" types to GoLang
 structs.  In this case, we have no struct definition for some facets of our claim, such as "LshwOutput" and
 "JunitResults". This is due to the fact that others define those JSON structures, and we are not in the business of
 redefinition.  This is a rare case in which we want to allow GoLang to represent arbitrary JSON data.  If deeper
