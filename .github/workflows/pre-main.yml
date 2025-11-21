@@ -21,11 +21,19 @@ jobs:
         with:
           go-version-file: go.mod
 
+      - name: Install golangci-lint
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v2.6.2
+          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
+
       - name: Run Tests
         run: make generate-golang-schema build tests
 
       - name: Run make vet
         run: make vet
+
+      - name: Run golangci-lint
+        run: make lint
 
       - name: Quality Gate - Test coverage shall be above threshold
         env:
