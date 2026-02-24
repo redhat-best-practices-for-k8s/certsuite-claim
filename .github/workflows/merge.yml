@@ -3,7 +3,7 @@ name: build
 on:
   pull_request:
     types: [ closed ]
-
+permissions: read-all
 jobs:
 
   build:
