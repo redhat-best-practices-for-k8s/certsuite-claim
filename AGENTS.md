@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to AI coding agents when working with code in this repository.
 
 ## Repository Overview
 
@@ -93,7 +93,7 @@ From `go.mod`:
 ## Development Guidelines
 
 ### Go Version
-This repository uses Go 1.25.6.
+This repository uses Go 1.26.0.
 
 ### Modifying the Claim Schema
 
