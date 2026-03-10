@@ -93,7 +93,7 @@ From `go.mod`:
 ## Development Guidelines
 
 ### Go Version
-This repository uses Go 1.26.0.
+This repository uses Go 1.26.1.
 
 ### Modifying the Claim Schema
 
