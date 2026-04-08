@@ -1,6 +1,8 @@
 module github.com/redhat-best-practices-for-k8s/certsuite-claim
 
-go 1.26.1
+go 1.26
+
+toolchain go1.26.2
 
 require (
 	github.com/sebrandon1/generate v0.0.3
