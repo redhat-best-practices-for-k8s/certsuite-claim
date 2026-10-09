@@ -579,7 +579,37 @@
                     "passed": false,
                     "testText": "generic Testing boot params for the pod's node certsuite/test"
                 }
-            ]
+            ],
+            "error-metadata-example": {
+                "capturedTestOutput": "example panic while running the check\n",
+                "catalogInfo": {
+                    "bestPracticeReference": "No Doc Link - Telco",
+                    "description": "Ensures that containers do not use BPF capability. Workloads should avoid loading eBPF filters",
+                    "exceptionProcess": "Exception can be considered. Must identify which container requires the capability and detail why.",
+                    "remediation": "Remove the following capability from the container/pod definitions: BPF"
+                },
+                "categoryClassification": {
+                    "Extended": "Mandatory",
+                    "FarEdge": "Mandatory",
+                    "NonTelco": "Optional",
+                    "Telco": "Mandatory"
+                },
+                "checkDetails": "",
+                "duration": 0,
+                "endTime": "0001-01-01 00:00:00 +0000 UTC",
+                "errorReason": "example panic while running the check",
+                "errorType": "check-panic",
+                "failureLineContent": "",
+                "failureLocation": "",
+                "skipReason": "check panicked during execution",
+                "startTime": "0001-01-01 00:00:00 +0000 UTC",
+                "state": "panicked",
+                "testID": {
+                    "id": "error-metadata-example",
+                    "suite": "example",
+                    "tags": "telco"
+                }
+            }
         },
         "versions": {
             "certSuite": "v1.0.6"

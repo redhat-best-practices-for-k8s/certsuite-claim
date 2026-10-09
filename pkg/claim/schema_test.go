@@ -135,6 +135,40 @@ func TestResult_MarshalJSON(t *testing.T) {
 	}
 }
 
+func TestResult_ErrorFieldsRoundTrip(t *testing.T) {
+	contents, err := getTestFileContents("claim-valid")
+	if !assert.NoError(t, err) {
+		return
+	}
+
+	var root Root
+	if !assert.NoError(t, json.Unmarshal(contents, &root)) {
+		return
+	}
+
+	result, ok := root.Claim.Results["platform-alteration-base-image"]
+	if !assert.True(t, ok, "valid fixture should contain a result") {
+		return
+	}
+	assert.Empty(t, result.ErrorType, "older claims omit error fields")
+	assert.Empty(t, result.ErrorReason, "older claims omit error fields")
+
+	result.ErrorType = "check-panic"
+	result.ErrorReason = "panic in check function"
+	root.Claim.Results["platform-alteration-base-image"] = result
+	contents, err = json.Marshal(&root)
+	if !assert.NoError(t, err) {
+		return
+	}
+
+	var roundTrip Root
+	if !assert.NoError(t, json.Unmarshal(contents, &roundTrip)) {
+		return
+	}
+	assert.Equal(t, result.ErrorType, roundTrip.Claim.Results["platform-alteration-base-image"].ErrorType)
+	assert.Equal(t, result.ErrorReason, roundTrip.Claim.Results["platform-alteration-base-image"].ErrorReason)
+}
+
 func TestResult_UnmarshalJSON(t *testing.T) { //nolint:funlen
 	type args struct {
 		b []byte
